@@ -141,5 +141,8 @@
     <color name="MediumBlue">#0000CD</color>
     <color name="DarkBlue">#00008B</color>
     <color name="Navy">#000080</color>
+    <color name="clinica">#A6E5E3</color>
+    <color name="clinicaDark">#164863</color>
+    <color name="letraDark">#9DD3E6</color>
 
 </resources>

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">PryAndroidClinica</string>
+    <string-array name="tipos_documento">
+        <item>DNI</item>
+        <item>Pasaporte</item>
+        <item>Carnet de Extranjería</item>
+    </string-array>
 </resources>
