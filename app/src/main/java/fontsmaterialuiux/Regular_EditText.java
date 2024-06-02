@@ -2,7 +2,8 @@ package fontsmaterialuiux;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.support.v7.widget.AppCompatEditText;
+import androidx.appcompat.widget.AppCompatEditText;
+import com.google.android.material.textfield.TextInputEditText;
 import android.util.AttributeSet;
 
 public class Regular_EditText extends AppCompatEditText

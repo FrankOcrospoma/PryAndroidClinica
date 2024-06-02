@@ -46,9 +46,9 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/white"
-                android:textColor="@color/black"
+                android:backgroundTint="@color/letraDark"
                 android:background="@drawable/custom_edittext"
+                android:textColor="@color/black"
                 android:id="@+id/txtCrearNombre"
                 android:inputType="text"
                 android:text=""/>
@@ -82,7 +82,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="@color/letraDark"
                 android:textColor="@color/black"
                 android:background="@drawable/custom_edittext"
                 android:id="@+id/txtCrearApellidos"
@@ -116,7 +116,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="@color/letraDark"
                 android:textColor="@color/black"
                 android:background="@drawable/custom_edittext"
                 android:id="@+id/txtCrearEmail"
@@ -147,7 +147,7 @@
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:background="@drawable/custom_edittext"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/letraDark"
             android:entries="@array/tipos_documento"/>
 
         <Space
@@ -179,7 +179,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="@color/letraDark"
                 android:textColor="@color/black"
                 android:background="@drawable/custom_edittext"
                 android:id="@+id/txtCrearDocumento"
@@ -214,7 +214,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="@color/letraDark"
                 android:textColor="@color/black"
                 android:background="@drawable/custom_edittext"
                 android:id="@+id/txtFechaNacimiento"
@@ -250,9 +250,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="@color/letraDark"
                 android:textColor="@color/black"
-
                 android:background="@drawable/custom_edittext"
                 android:id="@+id/txtTelefono"
                 android:inputType="number"
@@ -268,8 +267,8 @@
             android:id="@+id/btnRegistrar"
             android:text="Registrar"
             android:textSize="18sp"
-            android:backgroundTint="@color/letraDark"
-            android:textColor="@color/black"
+            android:backgroundTint="@color/purple"
+            android:textColor="@color/white"
             app:cornerRadius = "20dp"/>
     </LinearLayout>
 

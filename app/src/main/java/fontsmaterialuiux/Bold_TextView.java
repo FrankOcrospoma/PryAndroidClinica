@@ -2,7 +2,8 @@ package fontsmaterialuiux;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.support.v7.widget.AppCompatTextView;
+import androidx.appcompat.widget.AppCompatTextView;
+import com.google.android.material.textfield.TextInputEditText;
 import android.util.AttributeSet;
 
 public class Bold_TextView extends AppCompatTextView {

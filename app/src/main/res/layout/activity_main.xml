@@ -11,7 +11,6 @@
     android:gravity="center"
     android:background="@drawable/loginbkg"
     tools:context=".MainActivity">
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,10 +18,9 @@
         app:cardCornerRadius="30dp"
         app:cardElevation="20dp"
         android:background="@drawable/custom_edittext">
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"/>
-
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,16 +41,13 @@
                     android:textStyle="bold"
                     android:gravity="center"
                     android:text="Iniciar Sesión"
-                    android:textColor="@color/letraDark"
-                    />
-
+                    android:textColor="@color/letraDark"/>
                 <View
                     android:layout_width="2dp"
                     android:layout_height="match_parent"
                     android:layout_margin="4dp"
                     android:layout_weight="0"
                     android:background="@color/letraDark" />
-
                 <fontsmaterialuiux.Bold_TextView
                     android:id="@+id/log_in"
                     android:layout_width="wrap_content"
@@ -64,7 +59,6 @@
                     android:gravity="center"
                     android:text="Crear Cuenta"
                     android:textColor="@color/letraDark"/>
-
             </LinearLayout>
             <EditText
                 android:layout_width="match_parent"
@@ -79,7 +73,6 @@
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
                 android:layout_marginTop="20dp"/>
-
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -102,7 +95,6 @@
                 android:textStyle="bold"
                 android:gravity="right"
                 android:layout_marginTop="10dp"/>
-
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -113,11 +105,8 @@
                 android:layout_marginTop="10dp"
                 android:backgroundTint="@color/purple"
                 app:cornerRadius = "20dp"/>
-
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
-
     <TextView
         android:id="@+id/signupText"
         android:layout_width="wrap_content"
@@ -128,5 +117,4 @@
         android:textAlignment="center"
         android:textColor="@color/purple"
         android:textSize="14sp" />
-
 </LinearLayout>
