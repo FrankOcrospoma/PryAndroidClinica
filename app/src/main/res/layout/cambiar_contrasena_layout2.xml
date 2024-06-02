@@ -10,14 +10,14 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:background="@color/Silver">
+        android:background="@color/clinicaDark">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Cambiar Contraseña"
             android:gravity="center"
-            android:textColor="@color/black"
+            android:textColor="@color/letraDark"
             android:textStyle="bold"
             android:textSize="20dp"/>
 
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:text="Contraseña Actual"
             android:paddingLeft="30dp"
-            android:textColor="@color/black"
+            android:textColor="@color/letraDark"
             android:textSize="15dp"
             android:textStyle="bold" />
         <Space
@@ -49,7 +49,9 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
+                android:background="@drawable/custom_edittext"
+                android:backgroundTint="@color/letraDark"
+                android:textColorHighlight="@color/cardview_dark_background"
                 android:textColor="@color/black"
                 android:id="@+id/txtActualContraseña"
                 android:inputType="text"/>
@@ -63,7 +65,7 @@
             android:layout_height="wrap_content"
             android:text="Nueva Contraseña"
             android:paddingLeft="30dp"
-            android:textColor="@color/black"
+            android:textColor="@color/letraDark"
             android:textSize="15dp"
             android:textStyle="bold" />
         <Space
@@ -82,7 +84,9 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
+                android:background="@drawable/custom_edittext"
+                android:backgroundTint="@color/letraDark"
+                android:textColorHighlight="@color/cardview_dark_background"
                 android:textColor="@color/black"
                 android:id="@+id/txtNuevaContraseñaCambiar"
                 android:inputType="text"/>
@@ -90,7 +94,7 @@
         </com.google.android.material.textfield.TextInputLayout>
         <Space
             android:layout_width="wrap_content"
-            android:layout_height="10dp"/>
+            android:layout_height="15dp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -102,7 +106,8 @@
                 android:id="@+id/btnCambiarContraseña"
                 android:text="Continuar"
                 android:textSize="18sp"
-                android:backgroundTint="@color/SteelBlue"
+                android:backgroundTint="@color/purple"
+                android:textStyle="bold"
                 app:cornerRadius = "20dp"/>
         </LinearLayout>
         <Space

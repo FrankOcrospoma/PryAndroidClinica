@@ -10,14 +10,14 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:background="@color/Silver">
+        android:background="@color/clinicaDark">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Verificación de Email"
             android:gravity="center"
-            android:textColor="@color/black"
+            android:textColor="@color/letraDark"
             android:textStyle="bold"
             android:textSize="20dp"/>
 
@@ -31,7 +31,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
+                android:textColor="@color/letraDark"
                 android:textStyle="bold"
                 android:text="Ingrese su código enviado a su email:"
                 android:textSize="14sp"
@@ -41,7 +41,7 @@
                 android:id="@+id/timer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
+                android:textColor="@color/letraDark"
                 android:textStyle="bold"
                 android:text="60"
                 android:textSize="14sp"
@@ -69,6 +69,7 @@
                 android:gravity="center"
                 android:textSize="24sp"
                 android:textColor="@color/black"
+                android:textStyle="bold"
                 android:maxLength="1"
                 android:background="@color/white"
                 android:layout_marginEnd="10dp"/>
@@ -80,6 +81,7 @@
                 android:inputType="number"
                 android:gravity="center"
                 android:textSize="24sp"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:maxLength="1"
                 android:background="@color/white"
@@ -92,6 +94,7 @@
                 android:inputType="number"
                 android:gravity="center"
                 android:textSize="24sp"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:maxLength="1"
                 android:background="@color/white"
@@ -104,6 +107,7 @@
                 android:inputType="number"
                 android:gravity="center"
                 android:textSize="24sp"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:maxLength="1"
                 android:background="@color/white"
@@ -114,6 +118,7 @@
                 android:layout_height="40dp"
                 android:inputType="number"
                 android:gravity="center"
+                android:textStyle="bold"
                 android:textSize="24sp"
                 android:textColor="@color/black"
                 android:maxLength="1"
@@ -126,6 +131,7 @@
                 android:inputType="number"
                 android:gravity="center"
                 android:textSize="24sp"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:maxLength="1"
                 android:background="@color/white"
@@ -143,9 +149,9 @@
             android:id="@+id/btnValidar"
             android:text="Continuar"
             android:textSize="18sp"
-            android:backgroundTint="@color/SteelBlue"
+            android:textStyle="bold"
+            android:backgroundTint="@color/purple"
             app:cornerRadius = "20dp"/>
-
     </LinearLayout>
     </LinearLayout>
     </RelativeLayout>
