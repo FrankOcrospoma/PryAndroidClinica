@@ -40,6 +40,7 @@
             android:id="@+id/input_layout_crear_nombre"
             android:hint="Ingrese Nombres"
             app:hintEnabled="true"
+            android:textColorHint="@color/black"
             app:hintAnimationEnabled="true"
             app:boxStrokeColor="@color/black"
             android:layout_gravity="center">
@@ -75,6 +76,7 @@
             android:id="@+id/input_layout_crear_apellidos"
             android:hint="Ingrese Apellidos"
             app:hintEnabled="true"
+            android:textColorHint="@color/black"
             app:hintAnimationEnabled="true"
             app:boxStrokeColor="@color/black"
             android:layout_gravity="center">
@@ -110,6 +112,7 @@
             android:id="@+id/input_layout_crear_email"
             android:hint="example@hotmail.com"
             app:hintEnabled="true"
+            android:textColorHint="@color/black"
             app:hintAnimationEnabled="true"
             app:boxStrokeColor="@color/black"
             android:layout_gravity="center">
@@ -172,6 +175,7 @@
             android:id="@+id/input_layout_crear_documento"
             android:hint="Numero de documento"
             app:hintEnabled="true"
+            android:textColorHint="@color/black"
             app:hintAnimationEnabled="true"
             app:boxStrokeColor="@color/black"
             app:boxStrokeWidthFocused="@dimen/cardview_default_elevation"
@@ -210,6 +214,7 @@
             android:hint="Fecha de Nacimiento"
             app:startIconDrawable="@drawable/ic_calendar"
             app:boxStrokeColor="@color/black"
+            android:textColorHint="@color/black"
             android:layout_gravity="center">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -243,6 +248,7 @@
             android:id="@+id/input_layout_telefono"
             android:hint="Ingrese Teléfono"
             app:hintEnabled="true"
+            android:textColorHint="@color/black"
             app:hintAnimationEnabled="true"
             app:boxStrokeColor="@color/black"
             app:startIconDrawable="@drawable/ic_telefono"

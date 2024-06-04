@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="20dp"
     android:background="@color/clinicaDark">
 
 
@@ -12,7 +11,8 @@
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -189,63 +189,23 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <com.google.android.material.button.MaterialButton
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:id="@+id/btnHome"
-                android:backgroundTint="@color/DarkSlateBlue"
-                android:text="Home"
-                android:textColor="@android:color/white"
-                android:icon="@drawable/ic_home"/>
 
-            <Space
-                android:layout_width="5dp"
-                android:layout_height="match_parent"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:id="@+id/btnNotificaciones"
-                android:backgroundTint="@color/MediumSlateBlue"
-                android:text="Noti"
-                android:textColor="@android:color/white"
-                android:icon="@drawable/ic_notificacion"/>
-
-            <Space
-                android:layout_width="5dp"
-                android:layout_height="match_parent"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:id="@+id/btnHistorial"
-                android:backgroundTint="@color/MediumSlateBlue"
-                android:text="Histo"
-                android:textColor="@android:color/white"
-                android:icon="@drawable/ic_historial"/>
-
-            <Space
-                android:layout_width="5dp"
-                android:layout_height="match_parent"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:id="@+id/btnPerfil"
-                android:backgroundTint="@color/MediumSlateBlue"
-                android:text="Perfil"
-                android:textColor="@android:color/white"
-                android:icon="@drawable/ic_perfil"/>
 
         </LinearLayout>
 
 
     </LinearLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        android:layout_alignParentBottom="true"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/bottom_nav_menu" />
 
 
 

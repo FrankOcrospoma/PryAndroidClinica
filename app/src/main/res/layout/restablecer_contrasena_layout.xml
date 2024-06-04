@@ -44,6 +44,7 @@
             android:id="@+id/input_layout_nueva_contraseña"
             app:endIconMode="clear_text"
             android:layout_gravity="center"
+            android:textColorHint="@color/black"
             android:hint="Nueva Contraseña">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -78,6 +79,7 @@
             android:id="@+id/input_layout_confirmar_contraseña"
             app:endIconMode="clear_text"
             android:layout_gravity="center"
+            android:textColorHint="@color/black"
             android:hint="Confirmar Contraseña">
 
             <com.google.android.material.textfield.TextInputEditText

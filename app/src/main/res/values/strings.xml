@@ -5,4 +5,8 @@
         <item>Pasaporte</item>
         <item>Carnet de Extranjería</item>
     </string-array>
+    <string name="title_home">Home</string>
+    <string name="title_notificacion">Notificación</string>
+    <string name="title_historial">Historial</string>
+    <string name="title_profile">Perfil</string>
 </resources>

@@ -11,6 +11,7 @@
     android:gravity="center"
     android:background="@drawable/loginbkg"
     tools:context=".MainActivity">
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,9 +19,6 @@
         app:cardCornerRadius="30dp"
         app:cardElevation="20dp"
         android:background="@drawable/custom_edittext">
-        <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -68,6 +66,7 @@
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/ic_baseline_person_24"
                 android:drawablePadding="8dp"
+                android:textColorHint="@color/black"
                 android:hint="Usuario"
                 android:padding="8dp"
                 android:textColor="@color/black"
@@ -81,6 +80,7 @@
                 android:drawableLeft="@drawable/baseline_lock_24"
                 android:drawablePadding="8dp"
                 android:hint="Contraseña"
+                android:textColorHint="@color/black"
                 android:padding="8dp"
                 android:inputType="textPassword"
                 android:textColor="@color/black"
@@ -117,4 +117,5 @@
         android:textAlignment="center"
         android:textColor="@color/purple"
         android:textSize="14sp" />
+
 </LinearLayout>

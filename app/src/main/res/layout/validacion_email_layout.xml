@@ -39,6 +39,7 @@
         android:id="@+id/input_layout_email_recuperar"
         app:endIconMode="clear_text"
         android:layout_gravity="center"
+        android:textColorHint="@color/black"
         app:startIconDrawable="@drawable/ic_email_recuperar"
         android:hint="Ingrese Email">
         <com.google.android.material.textfield.TextInputEditText

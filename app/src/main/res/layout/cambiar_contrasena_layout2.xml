@@ -44,6 +44,7 @@
             android:id="@+id/input_layout_Actual_contraseña"
             app:endIconMode="clear_text"
             android:layout_gravity="center"
+            android:textColorHint="@color/black"
             android:hint="Contraseña Actual">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -75,6 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:paddingLeft="30dp"
+            android:textColorHint="@color/black"
             android:paddingRight="30dp"
             android:id="@+id/input_layout_nueva_contraseña_cambiar"
             app:endIconMode="clear_text"
