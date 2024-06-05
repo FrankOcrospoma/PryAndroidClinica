@@ -9,4 +9,5 @@
     <string name="title_notificacion">Notificación</string>
     <string name="title_historial">Historial</string>
     <string name="title_profile">Perfil</string>
+    <string name="bottom_nav_list">Lista</string>
 </resources>
