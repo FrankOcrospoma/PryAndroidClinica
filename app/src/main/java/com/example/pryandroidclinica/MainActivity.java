@@ -8,11 +8,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import com.example.pryandroidclinica.fragments.PageFragment;
 import com.example.pryandroidclinica.fragments.RecyclerViewFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
     private static final String SELECTION = "SELECTION";

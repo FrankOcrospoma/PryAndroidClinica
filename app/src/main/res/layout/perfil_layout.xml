@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_corners"
                 android:backgroundTint="@color/clinica"
-                android:padding="16dp">
+                android:padding="10dp">
 
                 <ImageButton
                     android:id="@+id/btn_retroceder"
