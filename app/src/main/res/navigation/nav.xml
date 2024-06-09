@@ -20,7 +20,7 @@
         android:id="@+id/notificacion_layout"
         android:name="com.example.pryandroidclinica.fragments.PageFragment"
         android:label="@string/title_notificacion"
-        tools:layout="@layout/codigo_validacion_layout">
+        tools:layout="@layout/notificacion">
         <argument
             android:name="ARG_ICON"
             android:defaultValue="@drawable/notificacion"

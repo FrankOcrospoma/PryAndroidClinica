@@ -51,10 +51,10 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(this::onItemSelectedListener);
 
         if (savedInstanceState == null) {
-            //displays the initial fragment when app starts
-            bottomNavigationView.setSelectedItemId(R.id.nav_home);
+            // displays the initial fragment when app starts
+            bottomNavigationView.setSelectedItemId(R.id.nav_notificacion); // Cambiado a nav_notificacion
         } else {
-            //restores the item selected before rotating
+            // restores the item selected before rotating
             bottomNavigationView.setSelectedItemId(savedInstanceState.getInt(SELECTION));
         }
 
@@ -67,8 +67,7 @@ public class MainActivity extends AppCompatActivity {
         if (itemId == R.id.nav_home) {
             showPageFragment(R.drawable.home, R.string.title_home);
             return true;
-        }
-        else if (itemId == R.id.nav_notificacion) {
+        } else if (itemId == R.id.nav_notificacion) {
             showPageFragment(R.drawable.notificacion, R.string.title_notificacion);
             return true;
         } else if (itemId == R.id.nav_historial) {
@@ -81,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
             throw new IllegalArgumentException("item not implemented : " + item.getItemId());
         }
     }
+
 
     private void showPageFragment(@DrawableRes int iconId, @StringRes int title) {
         showFragment(PageFragment.newInstance(iconId), title);
