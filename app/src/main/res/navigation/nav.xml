@@ -31,7 +31,7 @@
         android:id="@+id/historial_layout"
         android:name="com.example.pryandroidclinica.fragments.PageFragment"
         android:label="@string/title_historial"
-        tools:layout="@layout/restablecer_contrasena_layout">
+        tools:layout="@layout/historial">
         <argument
             android:name="ARG_ICON"
             android:defaultValue="@drawable/historia"

@@ -231,16 +231,13 @@
             android:paddingLeft="10dp"
             android:text="Av.grau #192"
             android:textStyle="bold" />
-
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="@color/white" />
-
         <Space
             android:layout_width="match_parent"
             android:layout_height="15dp"/>
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -249,11 +246,9 @@
             android:textColor="@color/letraDark"
             android:drawableLeft="@drawable/ic_telefono"
             android:textSize="20dp"/>
-
         <Space
             android:layout_width="match_parent"
             android:layout_height="10dp"/>
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -263,7 +258,6 @@
             android:paddingLeft="10dp"
             android:text="999-999-999"
             android:textStyle="bold" />
-
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
