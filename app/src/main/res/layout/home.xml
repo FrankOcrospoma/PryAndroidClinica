@@ -165,6 +165,38 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="20dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:id="@+id/layoutReprogramar"
+                android:foreground="?attr/selectableItemBackground"
+                android:background="@color/letraDark">
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_weight="1"
+                    android:paddingTop="10sp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/reprogramar"
+                    android:scaleType="fitCenter"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reprogramar o cancelar citas"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
 
             <LinearLayout
                 android:paddingTop="20dp"

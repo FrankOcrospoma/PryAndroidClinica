@@ -1,4 +1,5 @@
 package com.example.pryandroidclinica;
+import android.app.DatePickerDialog;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
@@ -51,10 +52,8 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(this::onItemSelectedListener);
 
         if (savedInstanceState == null) {
-            // displays the initial fragment when app starts
-            bottomNavigationView.setSelectedItemId(R.id.nav_notificacion); // Cambiado a nav_notificacion
+            bottomNavigationView.setSelectedItemId(R.id.nav_notificacion);
         } else {
-            // restores the item selected before rotating
             bottomNavigationView.setSelectedItemId(savedInstanceState.getInt(SELECTION));
         }
 
