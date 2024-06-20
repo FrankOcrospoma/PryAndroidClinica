@@ -4,17 +4,34 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+        <!-- Ítems comunes para todos los usuarios -->
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:icon="@drawable/home"
+            android:title="Home" />
+
+
+
+        <!-- Ítems específicos para Personal Administrativo -->
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/nav_manage_patients"
+            android:icon="@drawable/pacientes"
+            android:title="Gestión de Pacientes" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_manage_appointments"
+            android:icon="@drawable/citas"
+            android:title="Gestión de Citas" />
+        <item
+            android:id="@+id/nav_manage_dentists"
+            android:icon="@drawable/odontologo"
+            android:title="Gestión de Odontólogos" />
+        <item
+            android:id="@+id/nav_manage_treatments"
+            android:icon="@drawable/tratamiento"
+            android:title="Gestión de Tratamientos" />
+        <item
+            android:id="@+id/nav_reports"
+            android:icon="@drawable/reportes"
+            android:title="Generación de Reportes" />
     </group>
 </menu>
