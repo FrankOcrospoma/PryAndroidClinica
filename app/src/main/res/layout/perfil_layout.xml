@@ -5,7 +5,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/clinicaDark">
-
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
@@ -17,7 +16,7 @@
         android:orientation="vertical"
         android:gravity="center_horizontal"
         android:layout_height="wrap_content"
-        android:padding="20dp">
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,8 +48,8 @@
                         android:paddingTop="20dp"
                         android:id="@+id/imagen_perfil_usuario"
                         android:layout_gravity="center"
-                        android:layout_width="96dp"
-                        android:layout_height="96dp"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
                         android:src="@mipmap/ic_launcher_round"
                         app:civ_border_width="2dp"
                         app:civ_border_color="#FFFFFF"/>
