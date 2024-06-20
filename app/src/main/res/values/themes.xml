@@ -6,4 +6,13 @@
     </style>
 
     <style name="Theme.PryAndroidClinica" parent="Base.Theme.PryAndroidClinica" />
+
+    <style name="Theme.PryAndroidClinica.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.PryAndroidClinica.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.PryAndroidClinica.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
