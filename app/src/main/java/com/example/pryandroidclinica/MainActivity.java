@@ -8,24 +8,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.pryandroidclinica.retrofit.ApiService;
 import com.example.pryandroidclinica.retrofit.RetrofitClient;
 import com.example.pryandroidclinica.response.LoginResponse;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-
 import java.io.IOException;
-
-import okhttp3.ResponseBody;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -107,6 +101,12 @@ public class MainActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("username", email);
                         editor.putString("token", token);
+                        editor.putString("nombreUsuario", loginResponse.getData().getNombre());
+                    //    editor.putString("fechaNacimiento", loginResponse.getData().getFechaNacimiento());
+                        editor.putString("documento", loginResponse.getData().getDocumento());
+                        editor.putString("email", loginResponse.getData().getEmail());
+                        editor.putString("direccion", loginResponse.getData().getDireccion());
+                      //  editor.putString("telefono", loginResponse.getData().getTelefono());
                         editor.apply();
 
                         // Redirigir a MenuActivity

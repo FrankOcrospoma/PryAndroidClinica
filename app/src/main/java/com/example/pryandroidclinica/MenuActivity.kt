@@ -1,7 +1,11 @@
 package com.example.pryandroidclinica
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.View
+import android.widget.Button
+import android.widget.TextView
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -28,8 +32,7 @@ class MenuActivity : AppCompatActivity() {
 
         binding.appBarMenu2.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null)
-                    .setAnchorView(R.id.fab).show()
+                    .setAction("Action", null).show()
         }
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
@@ -40,6 +43,18 @@ class MenuActivity : AppCompatActivity() {
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        // Recuperar y mostrar el nombre del usuario
+        val sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE)
+        val nombreUsuario = sharedPreferences.getString("nombreUsuario", "Jane Doe")
+        val txtNombreUsuario: TextView = findViewById(R.id.txtNombreUsuario)
+        txtNombreUsuario.text = nombreUsuario
+        // Configurar el clic en el botón "Ver Usuario"
+        val btnVerUsuario: Button = navView.getHeaderView(0).findViewById(R.id.btnVerUsuario)
+        btnVerUsuario.setOnClickListener {
+            val intent = Intent(this, UserProfileActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
