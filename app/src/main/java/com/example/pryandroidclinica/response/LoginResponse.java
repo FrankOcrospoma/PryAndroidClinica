@@ -37,9 +37,29 @@ public class LoginResponse {
         private String estado_cliente;
         private String foto;
         private int id;
+        private String nombre_usuario;
         private String nombre;
+        private String ape_completo;
+        private String telefono;
         private String tipo_documento_identidad_id;
         private String token;
+        private String fecha_nac;
+
+        public String getFechaNacimiento() {
+            return fecha_nac;
+        }
+
+        public void setFechaNacimiento(String fechaNacimiento) {
+            this.fecha_nac = fechaNacimiento;
+        }
+
+        public String getTelefono() {
+            return telefono;
+        }
+
+        public void setTelefono(String telefono) {
+            this.telefono = telefono;
+        }
 
         // Getters y setters para cada campo
         public String getDireccion() {
@@ -66,12 +86,33 @@ public class LoginResponse {
             this.email = email;
         }
 
-        public String getEstado_cliente() {
-            return estado_cliente;
+
+
+        public String getNombre_usuario() {
+            return nombre_usuario;
         }
 
-        public void setEstado_cliente(String estado_cliente) {
-            this.estado_cliente = estado_cliente;
+        public void setNombre_usuario(String nombre_usuario) {
+            this.nombre_usuario = nombre_usuario;
+        }
+
+        public String getApe_completo() {
+            return ape_completo;
+        }
+
+        public void setApe_completo(String ape_completo) {
+            this.ape_completo = ape_completo;
+        }
+
+
+
+
+        public String getFecha_nac() {
+            return fecha_nac;
+        }
+
+        public void setFecha_nac(String fecha_nac) {
+            this.fecha_nac = fecha_nac;
         }
 
         public String getFoto() {

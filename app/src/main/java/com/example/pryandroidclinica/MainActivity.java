@@ -99,14 +99,15 @@ public class MainActivity extends AppCompatActivity {
                         // Guardar el token y los datos del usuario en SharedPreferences
                         SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("username", email);
+                        editor.putString("username", loginResponse.getData().getNombre_usuario());
                         editor.putString("token", token);
                         editor.putString("nombreUsuario", loginResponse.getData().getNombre());
-                    //    editor.putString("fechaNacimiento", loginResponse.getData().getFechaNacimiento());
+                        editor.putString("ape_completo", loginResponse.getData().getApe_completo());
+                        editor.putString("fecha_nac", loginResponse.getData().getFechaNacimiento());
                         editor.putString("documento", loginResponse.getData().getDocumento());
                         editor.putString("email", loginResponse.getData().getEmail());
                         editor.putString("direccion", loginResponse.getData().getDireccion());
-                      //  editor.putString("telefono", loginResponse.getData().getTelefono());
+                        editor.putString("telefono", loginResponse.getData().getTelefono());
                         editor.apply();
 
                         // Redirigir a MenuActivity

@@ -3,6 +3,7 @@ package com.example.pryandroidclinica
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.TextView
 import com.google.android.material.snackbar.Snackbar
@@ -10,6 +11,7 @@ import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
@@ -46,22 +48,36 @@ class MenuActivity : AppCompatActivity() {
         val nombreUsuario = sharedPreferences.getString("nombreUsuario", "Jane Doe")
         val correoUsuario = sharedPreferences.getString("email", "jane.doe@example.com")
 
-
-        val nombreUsuario2 = sharedPreferences.getString("nombreUsuario", "Jane Doe")
-        val txtNombreUsuario: TextView = findViewById(R.id.txtNombreUsuario)
-        txtNombreUsuario.text = nombreUsuario2
-
         val headerView = navView.getHeaderView(0)
         val navHeaderTitle: TextView = headerView.findViewById(R.id.nav_header_title)
         val navHeaderSubtitle: TextView = headerView.findViewById(R.id.nav_header_subtitle)
         navHeaderTitle.text = nombreUsuario
         navHeaderSubtitle.text = correoUsuario
 
+
+        val nombreUsuario2 = sharedPreferences.getString("nombreUsuario", "Jane Doe")
+        val txtNombreUsuario: TextView = findViewById(R.id.txtNombreUsuario)
+        txtNombreUsuario.text = nombreUsuario2
+
+
         // Configurar el clic en el botón "Ver Usuario"
         val btnVerUsuario: Button = headerView.findViewById(R.id.btnVerUsuario)
         btnVerUsuario.setOnClickListener {
             val intent = Intent(this, UserProfileActivity::class.java)
             startActivity(intent)
+        }
+
+        // Configurar la navegación al hacer clic en Notificaciones
+        navView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.nav_noti -> {
+                    val intent = Intent(this, NotificacionActivity::class.java)
+                    startActivity(intent)
+                    drawerLayout.closeDrawers()
+                    true
+                }
+                else -> menuItem.onNavDestinationSelected(navController) || super.onOptionsItemSelected(menuItem)
+            }
         }
     }
 

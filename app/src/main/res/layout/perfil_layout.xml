@@ -18,298 +18,344 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="?attr/colorPrimary"
-     />
+            />
 
-
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center_horizontal"
-            tools:ignore="MissingConstraints">
-            <fragment
-                android:id="@+id/nav_host_fragment_content_profile"
-                android:name="androidx.navigation.fragment.NavHostFragment"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                app:defaultNavHost="true"
-                app:navGraph="@navigation/mobile_navigation2" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/nombreClinica"
-                android:drawableLeft="@drawable/baseline_menu_24"
-                android:drawablePadding="8dp"
-                android:text="Perfil Usuario"
-                android:textColor="@color/black"
-                android:padding="8dp"
-                android:background="@color/letraDark"
-                android:textSize="25dp"
-                android:textStyle="bold"
-                android:paddingStart="20dp"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="20dp" />
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/rounded_corners"
-                    android:backgroundTint="@color/clinica"
-                    android:padding="10dp">
-
-                    <ImageButton
-                        android:id="@+id/btn_retroceder"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:backgroundTint="@android:color/transparent"
-                        android:src="@drawable/ic_retroceder"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_centerInParent="true">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:paddingTop="20dp"
-                            android:id="@+id/imagen_perfil_usuario"
-                            android:layout_gravity="center"
-                            android:layout_width="150dp"
-                            android:layout_height="150dp"
-                            android:src="@mipmap/ic_launcher_round"
-                            app:civ_border_width="2dp"
-                            app:civ_border_color="#FFFFFF" />
-
-                        <TextView
-                            android:id="@+id/nombre_completo_perfil_usuario"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/imagen_perfil_usuario"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="12dp"
-                            android:textStyle="bold"
-                            android:layout_gravity="center"
-                            android:text="Nombre Perfil"
-                            android:textColor="@color/black"
-                            android:textSize="18sp" />
-
-                    </LinearLayout>
-                </RelativeLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
+                android:gravity="center_horizontal"
+                tools:ignore="MissingConstraints">
+
+                <fragment
+                    android:id="@+id/nav_host_fragment_content_profile"
+                    android:name="androidx.navigation.fragment.NavHostFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    app:defaultNavHost="true"
+                    app:navGraph="@navigation/mobile_navigation2" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/nombreClinica"
+                    android:drawableLeft="@drawable/baseline_menu_24"
+                    android:drawablePadding="8dp"
+                    android:text="Perfil Usuario"
+                    android:textColor="@color/black"
+                    android:padding="8dp"
+                    android:background="@color/letraDark"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp" />
 
                 <Space
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="20dp" />
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nombre Usuario"
-                    android:textStyle="bold"
-                    android:textColor="@color/letraDark"
-                    android:textSize="20dp"
-                    android:drawableLeft="@drawable/ic_nombres" />
+                    android:orientation="vertical">
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_corners"
+                        android:backgroundTint="@color/clinica"
+                        android:padding="10dp">
 
-                <TextView
-                    android:layout_width="match_parent"
+                        <ImageButton
+                            android:id="@+id/btn_retroceder"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:backgroundTint="@android:color/transparent"
+                            android:src="@drawable/ic_retroceder"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_centerInParent="true">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:paddingTop="20dp"
+                                android:id="@+id/imagen_perfil_usuario"
+                                android:layout_gravity="center"
+                                android:layout_width="150dp"
+                                android:layout_height="150dp"
+                                android:src="@mipmap/ic_launcher_round"
+                                app:civ_border_width="2dp"
+                                app:civ_border_color="#FFFFFF"
+                                android:onClick="selectImage" />
+                            <EditText
+                                android:id="@+id/nombre_completo_perfil_usuario"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/imagen_perfil_usuario"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="12dp"
+                                android:textStyle="bold"
+                                android:layout_gravity="center"
+                                android:text="Nombre Perfil"
+                                android:textColor="@color/black"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/letraDark"
-                    android:textSize="15dp"
-                    android:id="@+id/txtPerfilNickUsuario"
-                    android:paddingLeft="10dp"
-                    android:text="Janedoe21"
-                    android:textStyle="bold" />
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp">
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="@color/white" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp" />
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="15dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Nombres"
+                        android:textStyle="bold"
+                        android:textColor="@color/letraDark"
+                        android:textSize="20dp"
+                        android:drawableLeft="@drawable/ic_nombres" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Fecha Nacimiento"
-                    android:textStyle="bold"
-                    android:drawableLeft="@drawable/ic_fecha_nacimiento"
-                    android:textColor="@color/letraDark"
-                    android:textSize="20dp" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp" />
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/letraDark"
+                        android:textSize="15dp"
+                        android:id="@+id/txtPerfilNickUsuario"
+                        android:paddingLeft="10dp"
+                        android:text="Janedoe21"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/letraDark"
-                    android:id="@+id/txtPerfilFechaNacimiento"
-                    android:textSize="15dp"
-                    android:paddingLeft="10dp"
-                    android:text="10/10/2010"
-                    android:textStyle="bold" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/white" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="@color/white" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Apellidos"
+                        android:textStyle="bold"
+                        android:textColor="@color/letraDark"
+                        android:textSize="20dp"
+                        android:drawableLeft="@drawable/ic_nombres" />
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="15dp" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Documento"
-                    android:textStyle="bold"
-                    android:textColor="@color/letraDark"
-                    android:drawableLeft="@drawable/ic_documento"
-                    android:textSize="20dp" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/letraDark"
+                        android:textSize="15dp"
+                        android:id="@+id/txtApellido"
+                        android:paddingLeft="10dp"
+                        android:text="Janedoe21"
+                        android:textStyle="bold" />
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/white" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/letraDark"
-                    android:textSize="15dp"
-                    android:paddingLeft="10dp"
-                    android:id="@+id/txtPerfilDocumento"
-                    android:text="75010274"
-                    android:textStyle="bold" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="@color/white" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Fecha Nacimiento"
+                        android:textStyle="bold"
+                        android:drawableLeft="@drawable/ic_fecha_nacimiento"
+                        android:textColor="@color/letraDark"
+                        android:textSize="20dp" />
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="15dp" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Email"
-                    android:textStyle="bold"
-                    android:textColor="@color/letraDark"
-                    android:drawableLeft="@drawable/ic_email"
-                    android:textSize="20dp" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/letraDark"
+                        android:id="@+id/txtPerfilFechaNacimiento"
+                        android:textSize="15dp"
+                        android:paddingLeft="10dp"
+                        android:text="10/10/2010"
+                        android:textStyle="bold" />
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/white" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/letraDark"
-                    android:id="@+id/txtPerfilEmail"
-                    android:textSize="15dp"
-                    android:paddingLeft="10dp"
-                    android:text="janesmith77@gmail.com"
-                    android:textStyle="bold" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="@color/white" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Documento"
+                        android:textStyle="bold"
+                        android:textColor="@color/letraDark"
+                        android:drawableLeft="@drawable/ic_documento"
+                        android:textSize="20dp" />
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="15dp" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Direccion"
-                    android:textStyle="bold"
-                    android:textColor="@color/letraDark"
-                    android:drawableLeft="@drawable/ic_direccion"
-                    android:textSize="20dp" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/letraDark"
+                        android:textSize="15dp"
+                        android:id="@+id/txtPerfilDocumento"
+                        android:paddingLeft="10dp"
+                        android:text="75010274"
+                        android:textStyle="bold" />
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/white" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/letraDark"
-                    android:textSize="15dp"
-                    android:id="@+id/txtPerfilDireccion"
-                    android:paddingLeft="10dp"
-                    android:text="Av.grau #192"
-                    android:textStyle="bold" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="@color/white" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Email"
+                        android:textStyle="bold"
+                        android:textColor="@color/letraDark"
+                        android:drawableLeft="@drawable/ic_email"
+                        android:textSize="20dp" />
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="15dp" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Telefono"
-                    android:textStyle="bold"
-                    android:textColor="@color/letraDark"
-                    android:drawableLeft="@drawable/ic_telefono"
-                    android:textSize="20dp" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/letraDark"
+                        android:id="@+id/txtPerfilEmail"
+                        android:textSize="15dp"
+                        android:paddingLeft="10dp"
+                        android:text="janesmith77@gmail.com"
+                        android:textStyle="bold" />
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/white" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/letraDark"
-                    android:textSize="15dp"
-                    android:id="@+id/txtPerfilTelefono"
-                    android:paddingLeft="10dp"
-                    android:text="999-999-999"
-                    android:textStyle="bold" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="@color/white" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Direccion"
+                        android:textStyle="bold"
+                        android:textColor="@color/letraDark"
+                        android:drawableLeft="@drawable/ic_direccion"
+                        android:textSize="20dp" />
 
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/letraDark"
+                        android:textSize="15dp"
+                        android:id="@+id/txtPerfilDireccion"
+                        android:paddingLeft="10dp"
+                        android:text="Av.grau #192"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/white" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Telefono"
+                        android:textStyle="bold"
+                        android:textColor="@color/letraDark"
+                        android:drawableLeft="@drawable/ic_telefono"
+                        android:textSize="20dp" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/letraDark"
+                        android:textSize="15dp"
+                        android:id="@+id/txtPerfilTelefono"
+                        android:paddingLeft="10dp"
+                        android:text="999-999-999"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/white" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp" />
+
+                    <Button
+                        android:id="@+id/btnGuardar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Guardar"
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/purple"
+                        android:textStyle="bold"
+                        android:padding="12dp" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
+        </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView
