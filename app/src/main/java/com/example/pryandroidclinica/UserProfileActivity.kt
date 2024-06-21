@@ -2,6 +2,7 @@ package com.example.pryandroidclinica
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -13,13 +14,17 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.FileProvider
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.example.pryandroidclinica.response.LoginResponse
 import com.example.pryandroidclinica.retrofit.ApiService
 import com.example.pryandroidclinica.retrofit.RetrofitClient
@@ -38,6 +43,7 @@ class UserProfileActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var imageView: ImageView
     private lateinit var imageUri: Uri
+    private lateinit var imagePath: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -91,6 +97,33 @@ class UserProfileActivity : AppCompatActivity() {
         findViewById<EditText>(R.id.txtPerfilDireccion).setText(direccion)
         findViewById<EditText>(R.id.txtPerfilTelefono).setText(telefono)
 
+        // Cargar la imagen usando Glide
+        val imageUrl = RetrofitClient.URL_API_SERVICE + "/" + (foto ?: "")
+        Glide.with(this)
+                .load(imageUrl)
+                .listener(object : RequestListener<Drawable> {
+                    override fun onLoadFailed(
+                            e: GlideException?,
+                            model: Any?,
+                            target: Target<Drawable>?,
+                            isFirstResource: Boolean
+                    ): Boolean {
+                        Log.e("UserProfileActivity", "Error al cargar la imagen: ${e?.message}")
+                        return false
+                    }
+
+                    override fun onResourceReady(
+                            resource: Drawable?,
+                            model: Any?,
+                            target: Target<Drawable>?,
+                            dataSource: DataSource?,
+                            isFirstResource: Boolean
+                    ): Boolean {
+                        return false
+                    }
+                })
+                .into(imageView)
+
         findViewById<Button>(R.id.btnGuardar).setOnClickListener {
             val nuevouser = findViewById<EditText>(R.id.txtPerfilNickUsuario).text.toString()
             val nuevoapellido = findViewById<EditText>(R.id.txtApellido).text.toString()
@@ -117,7 +150,7 @@ class UserProfileActivity : AppCompatActivity() {
                     sexo,
                     nuevaDireccion,
                     nuevoTelefono,
-                    foto ?: "",
+                    imagePath ?: "",
                     rolId
             )
 
@@ -135,7 +168,7 @@ class UserProfileActivity : AppCompatActivity() {
             Log.d("UserProfileActivity", "Sexo: $sexo")
             Log.d("UserProfileActivity", "Direccion: $nuevaDireccion")
             Log.d("UserProfileActivity", "Telefono: $nuevoTelefono")
-            Log.d("UserProfileActivity", "Foto: $foto")
+            Log.d("UserProfileActivity", "Foto: $imagePath")
             Log.d("UserProfileActivity", "Rol ID: $rolId")
 
             call.enqueue(object : Callback<LoginResponse> {
@@ -194,6 +227,8 @@ class UserProfileActivity : AppCompatActivity() {
             imageUri = data.data!!
             imageView.setImageURI(imageUri)
 
+            imagePath =  File(getRealPathFromURI(imageUri)).name
+
             val file = File(getRealPathFromURI(imageUri))
             val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file)
             val body = MultipartBody.Part.createFormData("foto", file.name, requestFile)
@@ -223,6 +258,5 @@ class UserProfileActivity : AppCompatActivity() {
         val realPath = cursor?.getString(idx!!)
         cursor?.close()
         return realPath!!
-
     }
 }

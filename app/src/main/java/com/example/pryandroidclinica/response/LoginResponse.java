@@ -30,6 +30,10 @@ public class LoginResponse {
         this.data = data;
     }
 
+    public String obtenerFoto() {
+        return data != null ? data.getFoto() : null;
+    }
+
     public static class Data {
         private String direccion;
         private String documento;
@@ -86,8 +90,6 @@ public class LoginResponse {
             this.email = email;
         }
 
-
-
         public String getNombre_usuario() {
             return nombre_usuario;
         }
@@ -103,9 +105,6 @@ public class LoginResponse {
         public void setApe_completo(String ape_completo) {
             this.ape_completo = ape_completo;
         }
-
-
-
 
         public String getFecha_nac() {
             return fecha_nac;
