@@ -181,7 +181,7 @@ class UserProfileActivity : AppCompatActivity() {
                         Toast.makeText(this@UserProfileActivity, "Datos actualizados correctamente", Toast.LENGTH_SHORT).show()
 
                         val editor = sharedPreferences.edit()
-                        editor.putString("username", user)
+                        editor.putString("username", nuevouser)
                         editor.putString("fecha_nac", nuevaFechaNac)
                         editor.putString("documento", nuevoDocumento)
                         editor.putString("email", nuevoEmail)
