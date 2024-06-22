@@ -106,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
                         editor.putString("fecha_nac", loginResponse.getData().getFechaNacimiento());
                         editor.putString("documento", loginResponse.getData().getDocumento());
                         editor.putString("email", loginResponse.getData().getEmail());
+                        editor.putString("foto", loginResponse.getData().getFoto());
                         editor.putString("direccion", loginResponse.getData().getDireccion());
                         editor.putString("telefono", loginResponse.getData().getTelefono());
                         editor.apply();

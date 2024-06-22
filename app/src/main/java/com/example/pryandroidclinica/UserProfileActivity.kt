@@ -56,7 +56,7 @@ class UserProfileActivity : AppCompatActivity() {
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment_content_profile)
         appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow), drawerLayout)
+            R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
@@ -97,37 +97,41 @@ class UserProfileActivity : AppCompatActivity() {
         findViewById<EditText>(R.id.txtPerfilDireccion).setText(direccion)
         findViewById<EditText>(R.id.txtPerfilTelefono).setText(telefono)
 
+        // Inicializar imagePath con el valor de foto
+        imagePath =  (foto ?: "")
+
         // Cargar la imagen usando Glide
         val imageUrl = RetrofitClient.URL_API_SERVICE + "/" + (foto ?: "")
         Glide.with(this)
-                .load(imageUrl)
-                .listener(object : RequestListener<Drawable> {
-                    override fun onLoadFailed(
-                            e: GlideException?,
-                            model: Any?,
-                            target: Target<Drawable>?,
-                            isFirstResource: Boolean
-                    ): Boolean {
-                        Log.e("UserProfileActivity", "Error al cargar la imagen: ${e?.message}")
-                        return false
-                    }
+            .load(imageUrl)
+            .listener(object : RequestListener<Drawable> {
+                override fun onLoadFailed(
+                    e: GlideException?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    Log.e("UserProfileActivity", "Error al cargar la imagen: ${e?.message}")
+                    Log.e("UserProfileActivity",imageUrl)
+                    return false
+                }
 
-                    override fun onResourceReady(
-                            resource: Drawable?,
-                            model: Any?,
-                            target: Target<Drawable>?,
-                            dataSource: DataSource?,
-                            isFirstResource: Boolean
-                    ): Boolean {
-                        return false
-                    }
-                })
-                .into(imageView)
+                override fun onResourceReady(
+                    resource: Drawable?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    dataSource: DataSource?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    return false
+                }
+            })
+            .into(imageView)
 
         findViewById<Button>(R.id.btnGuardar).setOnClickListener {
-            val nuevouser = findViewById<EditText>(R.id.txtPerfilNickUsuario).text.toString()
+            val nuevouser = findViewById<EditText>(R.id.nombre_completo_perfil_usuario).text.toString()
             val nuevoapellido = findViewById<EditText>(R.id.txtApellido).text.toString()
-            val nuevoNombre = findViewById<EditText>(R.id.nombre_completo_perfil_usuario).text.toString()
+            val nuevoNombre = findViewById<EditText>(R.id.txtPerfilNickUsuario).text.toString()
             val nuevaFechaNac = findViewById<EditText>(R.id.txtPerfilFechaNacimiento).text.toString()
             val nuevoDocumento = findViewById<EditText>(R.id.txtPerfilDocumento).text.toString()
             val nuevoEmail = findViewById<EditText>(R.id.txtPerfilEmail).text.toString()
@@ -136,22 +140,22 @@ class UserProfileActivity : AppCompatActivity() {
 
             val apiService = RetrofitClient.createService()
             val call = apiService.actualizarUsuario(
-                    id,
-                    nuevouser,
-                    nuevoEmail,
-                    estado,
-                    token ?: "",
-                    estadoToken,
-                    nuevoNombre,
-                    nuevoapellido,
-                    nuevaFechaNac,
-                    nuevoDocumento,
-                    tipo_documento_id,
-                    sexo,
-                    nuevaDireccion,
-                    nuevoTelefono,
-                    imagePath ?: "",
-                    rolId
+                id,
+                nuevouser,
+                nuevoEmail,
+                estado,
+                token ?: "",
+                estadoToken,
+                nuevoNombre,
+                nuevoapellido,
+                nuevaFechaNac,
+                nuevoDocumento,
+                tipo_documento_id,
+                sexo,
+                nuevaDireccion,
+                nuevoTelefono,
+                imagePath,
+                rolId
             )
 
             Log.d("UserProfileActivity", "Actualizando usuario con datos:")
@@ -177,10 +181,11 @@ class UserProfileActivity : AppCompatActivity() {
                         Toast.makeText(this@UserProfileActivity, "Datos actualizados correctamente", Toast.LENGTH_SHORT).show()
 
                         val editor = sharedPreferences.edit()
-                        editor.putString("nombreUsuario", user)
+                        editor.putString("username", user)
                         editor.putString("fecha_nac", nuevaFechaNac)
                         editor.putString("documento", nuevoDocumento)
                         editor.putString("email", nuevoEmail)
+                        editor.putString("foto", imagePath)
                         editor.putString("direccion", nuevaDireccion)
                         editor.putString("telefono", nuevoTelefono)
                         editor.apply()
@@ -227,7 +232,7 @@ class UserProfileActivity : AppCompatActivity() {
             imageUri = data.data!!
             imageView.setImageURI(imageUri)
 
-            imagePath =  File(getRealPathFromURI(imageUri)).name
+            imagePath = "img/"+ File(getRealPathFromURI(imageUri)).name
 
             val file = File(getRealPathFromURI(imageUri))
             val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file)
