@@ -39,10 +39,10 @@
     </fragment>
 
     <fragment
-        android:id="@+id/perfil_layout"
+        android:id="@+id/fragment_profile"
         android:name="com.example.pryandroidclinica.fragments.PageFragment"
         android:label="@string/title_profile"
-        tools:layout="@layout/perfil_layout">
+        tools:layout="@layout/fragment_profile">
         <argument
             android:name="ARG_ICON"
             android:defaultValue="@drawable/usuario"

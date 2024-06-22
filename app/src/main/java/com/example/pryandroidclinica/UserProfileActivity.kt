@@ -26,7 +26,6 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.example.pryandroidclinica.response.LoginResponse
-import com.example.pryandroidclinica.retrofit.ApiService
 import com.example.pryandroidclinica.retrofit.RetrofitClient
 import com.google.android.material.navigation.NavigationView
 import okhttp3.MediaType
@@ -47,7 +46,7 @@ class UserProfileActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.perfil_layout)
+        setContentView(R.layout.fragment_profile)
 
         val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
