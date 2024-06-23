@@ -8,12 +8,15 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -26,6 +29,7 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.example.pryandroidclinica.response.LoginResponse
+import com.example.pryandroidclinica.retrofit.ApiService
 import com.example.pryandroidclinica.retrofit.RetrofitClient
 import com.google.android.material.navigation.NavigationView
 import okhttp3.MediaType
@@ -43,24 +47,20 @@ class UserProfileActivity : AppCompatActivity() {
     private lateinit var imageView: ImageView
     private lateinit var imageUri: Uri
     private lateinit var imagePath: String
-
+    companion object {
+        const val REQUEST_CODE = 1
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_profile)
 
-        val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
-
+        // Configuración del DrawerLayout y NavigationView
         drawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
-        val navController = findNavController(R.id.nav_host_fragment_content_profile)
-        appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow), drawerLayout)
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
 
         imageView = findViewById(R.id.imagen_perfil_usuario)
 
+        // Obtención de datos de SharedPreferences
         val sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE)
         val id = sharedPreferences.getInt("id", 1)
         val user = sharedPreferences.getString("username", "")
@@ -81,12 +81,14 @@ class UserProfileActivity : AppCompatActivity() {
         val nombre2 = sharedPreferences.getString("nombreUsuario", "Jane Doe")
         val correoUsuario = sharedPreferences.getString("email", "jane.doe@example.com")
 
+        // Configuración del header del NavigationView
         val headerView = navView.getHeaderView(0)
         val navHeaderTitle: TextView = headerView.findViewById(R.id.nav_header_title)
         val navHeaderSubtitle: TextView = headerView.findViewById(R.id.nav_header_subtitle)
         navHeaderTitle.text = nombre2
         navHeaderSubtitle.text = correoUsuario
 
+        // Llenado de campos con datos del usuario
         findViewById<EditText>(R.id.txtPerfilNickUsuario).setText(nombre)
         findViewById<EditText>(R.id.txtApellido).setText(apeCompleto)
         findViewById<EditText>(R.id.nombre_completo_perfil_usuario).setText(user)
@@ -96,8 +98,8 @@ class UserProfileActivity : AppCompatActivity() {
         findViewById<EditText>(R.id.txtPerfilDireccion).setText(direccion)
         findViewById<EditText>(R.id.txtPerfilTelefono).setText(telefono)
 
-        // Inicializar imagePath con el valor de foto
-        imagePath =  (foto ?: "")
+        // Inicialización de imagePath con el valor de foto
+        imagePath = (foto ?: "")
 
         // Cargar la imagen usando Glide
         val imageUrl = RetrofitClient.URL_API_SERVICE + "/" + (foto ?: "")
@@ -111,7 +113,7 @@ class UserProfileActivity : AppCompatActivity() {
                     isFirstResource: Boolean
                 ): Boolean {
                     Log.e("UserProfileActivity", "Error al cargar la imagen: ${e?.message}")
-                    Log.e("UserProfileActivity",imageUrl)
+                    Log.e("UserProfileActivity", imageUrl)
                     return false
                 }
 
@@ -127,6 +129,7 @@ class UserProfileActivity : AppCompatActivity() {
             })
             .into(imageView)
 
+        // Configuración del botón de guardar
         findViewById<Button>(R.id.btnGuardar).setOnClickListener {
             val nuevouser = findViewById<EditText>(R.id.nombre_completo_perfil_usuario).text.toString()
             val nuevoapellido = findViewById<EditText>(R.id.txtApellido).text.toString()
@@ -157,23 +160,6 @@ class UserProfileActivity : AppCompatActivity() {
                 rolId
             )
 
-            Log.d("UserProfileActivity", "Actualizando usuario con datos:")
-            Log.d("UserProfileActivity", "ID: $id")
-            Log.d("UserProfileActivity", "Nombre Usuario: $nuevouser")
-            Log.d("UserProfileActivity", "Email: $nuevoEmail")
-            Log.d("UserProfileActivity", "Estado: $estado")
-            Log.d("UserProfileActivity", "Token: $token")
-            Log.d("UserProfileActivity", "Estado Token: $estadoToken")
-            Log.d("UserProfileActivity", "Nombre: $nuevoNombre")
-            Log.d("UserProfileActivity", "Apellido Completo: $apeCompleto")
-            Log.d("UserProfileActivity", "Fecha Nac: $nuevaFechaNac")
-            Log.d("UserProfileActivity", "Documento: $nuevoDocumento")
-            Log.d("UserProfileActivity", "Sexo: $sexo")
-            Log.d("UserProfileActivity", "Direccion: $nuevaDireccion")
-            Log.d("UserProfileActivity", "Telefono: $nuevoTelefono")
-            Log.d("UserProfileActivity", "Foto: $imagePath")
-            Log.d("UserProfileActivity", "Rol ID: $rolId")
-
             call.enqueue(object : Callback<LoginResponse> {
                 override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                     if (response.isSuccessful && response.body()?.isStatus == true) {
@@ -201,13 +187,21 @@ class UserProfileActivity : AppCompatActivity() {
             })
         }
 
-        findViewById<TextView>(R.id.nombreClinica).setOnClickListener {
-            drawerLayout.openDrawer(navView)
+        // Agregar listener al botón de retroceder
+        val btnRetroceder: ImageButton = findViewById(R.id.btn_retroceder)
+        btnRetroceder.setOnClickListener {
+            onBackPressed()
         }
 
         findViewById<ImageView>(R.id.imagen_perfil_usuario).setOnClickListener {
             seleccionarImagen()
         }
+
+        findViewById<Button>(R.id.btnCambiarContraseña).setOnClickListener {
+            val intent = Intent(this, RestablecerContrasenaActivity::class.java)
+            startActivityForResult(intent, REQUEST_CODE)
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -215,9 +209,14 @@ class UserProfileActivity : AppCompatActivity() {
         return true
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_profile)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun seleccionarImagen() {

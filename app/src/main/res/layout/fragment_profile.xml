@@ -12,52 +12,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- Toolbar -->
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="?attr/colorPrimary"
-            />
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="-198dp"
+            tools:layout_editor_absoluteY="-72dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:gravity="center_horizontal"
+                android:orientation="vertical"
                 tools:ignore="MissingConstraints">
 
-                <fragment
-                    android:id="@+id/nav_host_fragment_content_profile"
-                    android:name="androidx.navigation.fragment.NavHostFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    app:defaultNavHost="true"
-                    app:navGraph="@navigation/mobile_navigation2" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:id="@+id/nombreClinica"
-                    android:drawableLeft="@drawable/baseline_menu_24"
-                    android:drawablePadding="8dp"
-                    android:text="Perfil Usuario"
-                    android:textColor="@color/black"
-                    android:padding="8dp"
-                    android:background="@color/letraDark"
-                    android:textSize="25dp"
-                    android:textStyle="bold"
-                    android:paddingStart="20dp"
-                    android:paddingTop="20dp"
-                    android:paddingBottom="20dp" />
-
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -75,39 +43,51 @@
                             android:id="@+id/btn_retroceder"
                             android:layout_width="48dp"
                             android:layout_height="48dp"
-                            android:backgroundTint="@android:color/transparent"
-                            android:src="@drawable/ic_retroceder"
                             android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true" />
+                            android:layout_alignParentTop="true"
+                            android:backgroundTint="@android:color/transparent"
+                            android:src="@drawable/ic_retroceder" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_centerInParent="true">
+                            android:layout_centerInParent="true"
+                            android:orientation="vertical">
 
                             <de.hdodenhof.circleimageview.CircleImageView
-                                android:paddingTop="20dp"
                                 android:id="@+id/imagen_perfil_usuario"
-                                android:layout_gravity="center"
                                 android:layout_width="150dp"
                                 android:layout_height="150dp"
+                                android:layout_gravity="center"
+                                android:onClick="selectImage"
+                                android:paddingTop="20dp"
                                 android:src="@mipmap/ic_launcher_round"
-                                app:civ_border_width="2dp"
                                 app:civ_border_color="#FFFFFF"
-                                android:onClick="selectImage" />
+                                app:civ_border_width="2dp" />
+
                             <EditText
                                 android:id="@+id/nombre_completo_perfil_usuario"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/imagen_perfil_usuario"
                                 android:layout_centerHorizontal="true"
-                                android:layout_marginTop="12dp"
-                                android:textStyle="bold"
                                 android:layout_gravity="center"
+                                android:layout_marginTop="12dp"
                                 android:text="Nombre Perfil"
                                 android:textColor="@color/black"
-                                android:textSize="18sp" />
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+                            <Button
+                                android:id="@+id/btnCambiarContraseña"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/purple"
+                                android:padding="12dp"
+                                android:text="Cambiar Contraseña"
+                                android:textColor="@color/white"
+                                android:textStyle="bold"
+                                android:layout_marginTop="15dp"
+                                />
 
                         </LinearLayout>
                     </RelativeLayout>
@@ -127,24 +107,24 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_nombres"
                         android:text="Nombres"
-                        android:textStyle="bold"
                         android:textColor="@color/letraDark"
                         android:textSize="20dp"
-                        android:drawableLeft="@drawable/ic_nombres" />
+                        android:textStyle="bold" />
 
                     <Space
                         android:layout_width="match_parent"
                         android:layout_height="10dp" />
 
                     <EditText
+                        android:id="@+id/txtPerfilNickUsuario"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/letraDark"
-                        android:textSize="15dp"
-                        android:id="@+id/txtPerfilNickUsuario"
                         android:paddingLeft="10dp"
                         android:text="Janedoe21"
+                        android:textColor="@color/letraDark"
+                        android:textSize="15dp"
                         android:textStyle="bold" />
 
                     <View
@@ -155,24 +135,24 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_nombres"
                         android:text="Apellidos"
-                        android:textStyle="bold"
                         android:textColor="@color/letraDark"
                         android:textSize="20dp"
-                        android:drawableLeft="@drawable/ic_nombres" />
+                        android:textStyle="bold" />
 
                     <Space
                         android:layout_width="match_parent"
                         android:layout_height="10dp" />
 
                     <EditText
+                        android:id="@+id/txtApellido"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/letraDark"
-                        android:textSize="15dp"
-                        android:id="@+id/txtApellido"
                         android:paddingLeft="10dp"
                         android:text="Janedoe21"
+                        android:textColor="@color/letraDark"
+                        android:textSize="15dp"
                         android:textStyle="bold" />
 
                     <View
@@ -187,24 +167,24 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Fecha Nacimiento"
-                        android:textStyle="bold"
                         android:drawableLeft="@drawable/ic_fecha_nacimiento"
+                        android:text="Fecha Nacimiento"
                         android:textColor="@color/letraDark"
-                        android:textSize="20dp" />
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
                     <Space
                         android:layout_width="match_parent"
                         android:layout_height="10dp" />
 
                     <EditText
+                        android:id="@+id/txtPerfilFechaNacimiento"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/letraDark"
-                        android:id="@+id/txtPerfilFechaNacimiento"
-                        android:textSize="15dp"
                         android:paddingLeft="10dp"
                         android:text="10/10/2010"
+                        android:textColor="@color/letraDark"
+                        android:textSize="15dp"
                         android:textStyle="bold" />
 
                     <View
@@ -219,24 +199,24 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Documento"
-                        android:textStyle="bold"
-                        android:textColor="@color/letraDark"
                         android:drawableLeft="@drawable/ic_documento"
-                        android:textSize="20dp" />
+                        android:text="Documento"
+                        android:textColor="@color/letraDark"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
                     <Space
                         android:layout_width="match_parent"
                         android:layout_height="10dp" />
 
                     <EditText
+                        android:id="@+id/txtPerfilDocumento"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/letraDark"
-                        android:textSize="15dp"
-                        android:id="@+id/txtPerfilDocumento"
                         android:paddingLeft="10dp"
                         android:text="75010274"
+                        android:textColor="@color/letraDark"
+                        android:textSize="15dp"
                         android:textStyle="bold" />
 
                     <View
@@ -251,24 +231,24 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Email"
-                        android:textStyle="bold"
-                        android:textColor="@color/letraDark"
                         android:drawableLeft="@drawable/ic_email"
-                        android:textSize="20dp" />
+                        android:text="Email"
+                        android:textColor="@color/letraDark"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
                     <Space
                         android:layout_width="match_parent"
                         android:layout_height="10dp" />
 
                     <EditText
+                        android:id="@+id/txtPerfilEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/letraDark"
-                        android:id="@+id/txtPerfilEmail"
-                        android:textSize="15dp"
                         android:paddingLeft="10dp"
                         android:text="janesmith77@gmail.com"
+                        android:textColor="@color/letraDark"
+                        android:textSize="15dp"
                         android:textStyle="bold" />
 
                     <View
@@ -283,24 +263,24 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Direccion"
-                        android:textStyle="bold"
-                        android:textColor="@color/letraDark"
                         android:drawableLeft="@drawable/ic_direccion"
-                        android:textSize="20dp" />
+                        android:text="Direccion"
+                        android:textColor="@color/letraDark"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
                     <Space
                         android:layout_width="match_parent"
                         android:layout_height="10dp" />
 
                     <EditText
+                        android:id="@+id/txtPerfilDireccion"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/letraDark"
-                        android:textSize="15dp"
-                        android:id="@+id/txtPerfilDireccion"
                         android:paddingLeft="10dp"
                         android:text="Av.grau #192"
+                        android:textColor="@color/letraDark"
+                        android:textSize="15dp"
                         android:textStyle="bold" />
 
                     <View
@@ -315,24 +295,24 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Telefono"
-                        android:textStyle="bold"
-                        android:textColor="@color/letraDark"
                         android:drawableLeft="@drawable/ic_telefono"
-                        android:textSize="20dp" />
+                        android:text="Telefono"
+                        android:textColor="@color/letraDark"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
                     <Space
                         android:layout_width="match_parent"
                         android:layout_height="10dp" />
 
                     <EditText
+                        android:id="@+id/txtPerfilTelefono"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/letraDark"
-                        android:textSize="15dp"
-                        android:id="@+id/txtPerfilTelefono"
                         android:paddingLeft="10dp"
                         android:text="999-999-999"
+                        android:textColor="@color/letraDark"
+                        android:textSize="15dp"
                         android:textStyle="bold" />
 
                     <View
@@ -348,11 +328,11 @@
                         android:id="@+id/btnGuardar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/purple"
+                        android:padding="12dp"
                         android:text="Guardar"
                         android:textColor="@color/white"
-                        android:backgroundTint="@color/purple"
-                        android:textStyle="bold"
-                        android:padding="12dp" />
+                        android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
