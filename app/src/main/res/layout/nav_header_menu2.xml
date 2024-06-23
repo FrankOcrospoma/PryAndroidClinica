@@ -39,6 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:text="Ver Usuario"
+        android:textColor="@color/white"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 </LinearLayout>

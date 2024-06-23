@@ -9,7 +9,7 @@
         android:id="@+id/page_home"
         android:name="com.example.pryandroidclinica.fragments.PageFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/home">
+        tools:layout="@layout/fragment_home">
         <argument
             android:name="ARG_ICON"
             android:defaultValue="@drawable/home"
