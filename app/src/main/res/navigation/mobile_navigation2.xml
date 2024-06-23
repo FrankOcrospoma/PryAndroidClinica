@@ -6,6 +6,12 @@
     app:startDestination="@+id/nav_home">
 
     <fragment
+        android:id="@+id/nav_notificacion"
+        android:name="com.example.pryandroidclinica.ui.notificacion.NotificacionFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_notificacion" />
+
+    <fragment
         android:id="@+id/nav_home"
         android:name="com.example.pryandroidclinica.ui.home.HomeFragment"
         android:label="@string/menu_home"
@@ -25,6 +31,6 @@
     <fragment
         android:id="@+id/nav_profile"
         android:name="com.example.pryandroidclinica.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="Perfil"
         tools:layout="@layout/fragment_profile" />
 </navigation>

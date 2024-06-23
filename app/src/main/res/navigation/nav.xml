@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav"
-    app:startDestination="@id/page_home">
+    app:startDestination="@id/notificacion_layout">
 
     <fragment
         android:id="@+id/page_home"
@@ -38,15 +38,8 @@
             app:argType="reference" />
     </fragment>
 
-    <fragment
-        android:id="@+id/fragment_profile"
-        android:name="com.example.pryandroidclinica.fragments.PageFragment"
-        android:label="@string/title_profile"
-        tools:layout="@layout/fragment_profile">
-        <argument
-            android:name="ARG_ICON"
-            android:defaultValue="@drawable/usuario"
-            app:argType="reference" />
-    </fragment>
+
+
+
 
 </navigation>

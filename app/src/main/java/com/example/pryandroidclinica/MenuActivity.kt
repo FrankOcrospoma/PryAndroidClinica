@@ -41,7 +41,7 @@ class MenuActivity : AppCompatActivity() {
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_menu2)
         appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow), drawerLayout)
+            R.id.nav_home, R.id.nav_notificacion, R.id.nav_gallery, R.id.nav_slideshow), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
@@ -103,7 +103,7 @@ class MenuActivity : AppCompatActivity() {
         // Configurar la navegación al hacer clic en Notificaciones
         navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.nav_noti -> {
+                R.id.nav_notificacion -> {
                     val intent = Intent(this, NotificacionActivity::class.java)
                     startActivity(intent)
                     drawerLayout.closeDrawers()

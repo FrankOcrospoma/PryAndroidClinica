@@ -23,7 +23,13 @@
             app:popupTheme="@style/Theme.PryAndroidClinica.PopupOverlay"
             app:layout_scrollFlags="scroll|enterAlways" />
 
-        <include layout="@layout/fragment_notificacion" />
+        <include
+            android:id="@+id/nav_notificacion"
+            layout="@layout/fragment_notificacion"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
 
     </LinearLayout>
 
