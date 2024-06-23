@@ -7,8 +7,8 @@
 
     <fragment
         android:id="@+id/nav_notificacion"
-        android:name="com.example.pryandroidclinica.ui.notificacion.NotificacionFragment"
-        android:label="@string/menu_home"
+        android:name="com.example.pryandroidclinica.NotificacionFragment"
+        android:label="@string/menu_notificaciones"
         tools:layout="@layout/fragment_notificacion" />
 
     <fragment

@@ -12,53 +12,7 @@
         android:orientation="vertical">
 
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="20dp" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="20sp"
-            android:paddingRight="20sp">
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:paddingBottom="10dp">
-
-                <TextView
-                    android:id="@+id/txtNombreUsuario"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Jane Doe"
-                    android:textColor="@color/letraDark"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Bienvenido"
-                    android:textColor="@color/letraDark"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imagen_perfil_usuario"
-                android:layout_width="60sp"
-                android:layout_height="60sp"
-                android:src="@drawable/llamaclinic"
-                app:civ_border_color="#FFFFFF"
-                app:civ_border_width="2dp" />
-        </LinearLayout>
-
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="20dp" />
 
 
 

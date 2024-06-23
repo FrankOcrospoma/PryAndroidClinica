@@ -6,7 +6,7 @@
         <item>Carnet de Extranjería</item>
     </string-array>
     <string name="title_home">Home</string>
-    <string name="title_notificacion">Notificación</string>
+    <string name="title_notificacion">Notificaciónes</string>
     <string name="title_historial">Historial</string>
     <string name="title_profile">Perfil</string>
     <string name="bottom_nav_list">Lista</string>
@@ -19,6 +19,7 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
+    <string name="menu_notificaciones">Notificaciónes</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.pryandroidclinica.ui.notificacion
+package com.example.pryandroidclinica
 
 import android.os.Bundle
 import android.view.LayoutInflater

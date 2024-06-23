@@ -100,18 +100,7 @@ class MenuActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // Configurar la navegación al hacer clic en Notificaciones
-        navView.setNavigationItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.nav_notificacion -> {
-                    val intent = Intent(this, NotificacionActivity::class.java)
-                    startActivity(intent)
-                    drawerLayout.closeDrawers()
-                    true
-                }
-                else -> menuItem.onNavDestinationSelected(navController) || super.onOptionsItemSelected(menuItem)
-            }
-        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
