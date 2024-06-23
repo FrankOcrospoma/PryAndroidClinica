@@ -95,7 +95,7 @@ class MenuActivity : AppCompatActivity() {
 
         // Configurar el clic en el botón "Ver Usuario"
         val btnVerUsuario: Button = headerView.findViewById(R.id.btnVerUsuario)
-        btnVerUsuario.setOnClickListener {
+        btnVerUsuario.setOnClickListener {UserProfileActivity
             val intent = Intent(this, UserProfileActivity::class.java)
             startActivity(intent)
         }

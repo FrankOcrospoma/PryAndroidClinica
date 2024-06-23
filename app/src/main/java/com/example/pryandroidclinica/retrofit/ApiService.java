@@ -46,4 +46,10 @@ public interface ApiService {
 
     @GET("/img/{filename}")
     Call<LoginResponse> obtenerFoto(@Path("filename") String filename);
+    @FormUrlEncoded
+    @POST("/usuario/cambiarContrasena")
+    Call<LoginResponse> cambiarContrasena(
+            @Field("id") int id,
+            @Field("nuevaContrasena") String nuevaContrasena
+    );
 }

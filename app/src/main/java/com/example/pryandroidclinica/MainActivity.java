@@ -9,9 +9,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+
 import com.example.pryandroidclinica.retrofit.ApiService;
 import com.example.pryandroidclinica.retrofit.RetrofitClient;
 import com.example.pryandroidclinica.response.LoginResponse;
+import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import java.io.IOException;
@@ -36,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         username = findViewById(R.id.txtIngresarUsuario);
         password = findViewById(R.id.txtIngresarContraseña);
         loginButton = findViewById(R.id.btnIniciarSesion);
+
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
