@@ -48,7 +48,7 @@ public class PacientesResponse {
         private int estado;
         private int estadoToken;
         private String nombre;
-        private String apeCompleto;
+        private String ape_completo;
         private String fechaNac;
         private String documento;
         private int tipoDocumentoId;
@@ -86,7 +86,7 @@ public class PacientesResponse {
         }
 
         public String getApeCompleto() {
-            return apeCompleto;
+            return ape_completo;
         }
 
         public String getFechaNac() {

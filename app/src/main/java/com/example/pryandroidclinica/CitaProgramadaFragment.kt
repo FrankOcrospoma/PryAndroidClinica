@@ -69,7 +69,7 @@ class CitaProgramadaFragment : Fragment() {
                     val singleCita = citasResponse?.singleData
 
                     if (citas.isNotEmpty()) {
-                        citaAdapter.actualizarLista(citas)
+                         citaAdapter.actualizarLista(citas)
                     } else if (singleCita != null) {
                         citaAdapter.actualizarLista(listOf(singleCita))
                     } else {
