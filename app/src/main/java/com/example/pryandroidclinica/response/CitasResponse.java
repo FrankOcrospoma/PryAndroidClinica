@@ -5,6 +5,7 @@ import java.util.List;
 public class CitasResponse {
     private boolean status;
     private List<Cita> data;
+    private Cita singleData;  // Añadir esta línea
     private String message;
 
     public boolean isStatus() {
@@ -21,6 +22,14 @@ public class CitasResponse {
 
     public void setData(List<Cita> data) {
         this.data = data;
+    }
+
+    public Cita getSingleData() {  // Añadir este getter
+        return singleData;
+    }
+
+    public void setSingleData(Cita singleData) {  // Añadir este setter
+        this.singleData = singleData;
     }
 
     public String getMessage() {

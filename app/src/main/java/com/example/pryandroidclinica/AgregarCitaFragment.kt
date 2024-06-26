@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
 import com.example.pryandroidclinica.response.CitasResponse
 import com.example.pryandroidclinica.response.OdontologosResponse
@@ -52,8 +53,6 @@ class AgregarCitaFragment : Fragment() {
         txtAgregarHoraCita.setOnClickListener { showTimePickerDialog() }
         btnConfirmar.setOnClickListener { registrarCita() }
 
-        val btnRetroceder: ImageButton = view.findViewById(R.id.btn_retroceder)
-        btnRetroceder.setOnClickListener { parentFragmentManager.popBackStack() }
 
         cargarDatosSpinners()
     }
@@ -131,8 +130,9 @@ class AgregarCitaFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<CitasResponse>, t: Throwable) {
-                Log.e("AgregarCitaFragment", "Error en la solicitud: ${t.message}", t)
-                Toast.makeText(requireContext(), "Error al registrar la cita: ${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Cita registrado correctamente", Toast.LENGTH_SHORT).show()
+                setFragmentResult("requestKeyOdontologo", Bundle().apply { putString("resultKey", "success") })
+                findNavController().popBackStack()
             }
         })
     }

@@ -163,10 +163,10 @@ public interface ApiService {
             @Field("id") int id
     );
 
-    @HTTP(method = "DELETE", path = "/usuario/eliminar", hasBody = true)
+    @HTTP(method = "PUT", path = "/atencion/cita/cancelar", hasBody = true)
     @FormUrlEncoded
     Call<CitasResponse> cancelarCita(
-            @Field("id") int id
+            @Field("cita_id") int cita_id
     );
 
 }
