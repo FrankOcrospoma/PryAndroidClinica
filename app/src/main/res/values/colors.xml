@@ -143,6 +143,7 @@
     <color name="Navy">#000080</color>
     <color name="clinica">#DDF2FD</color>
     <color name="letra">#427D9D</color>
+    <color name="letraBtnDark">#2c3033</color>
     <color name="clinicaDark">#164863</color>
     <color name="letraDark">#9BBEC8</color>
 

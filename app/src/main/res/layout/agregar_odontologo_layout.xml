@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/clinicaDark"
+    tools:context=".AgregarOdontologoFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Agregar nuevo Odontologo"
+        android:textSize="24sp"
+        android:layout_gravity="center"
+        android:padding="16dp"
+        android:textStyle="bold"
+        android:textColor="@color/WhiteSmoke" />
+
+    <EditText
+        android:id="@+id/inputNombreOdontologo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre Odontologo"
+        android:inputType="text"
+        android:padding="8dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edittext_background"
+        android:textColor="@color/WhiteSmoke"
+        android:textColorHint="@color/WhiteSmoke"
+        android:drawablePadding="8dp"/>
+
+    <EditText
+        android:id="@+id/inputApellidoOdontologo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edittext_background"
+        android:drawablePadding="8dp"
+        android:hint="Apellido Odontologo"
+        android:inputType="text"
+        android:padding="8dp"
+        android:textColor="@color/WhiteSmoke"
+        android:textColorHint="@color/WhiteSmoke" />
+
+    <EditText
+        android:id="@+id/inputEmailOdontologo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edittext_background"
+        android:drawablePadding="8dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:padding="8dp"
+        android:textColor="@color/WhiteSmoke"
+        android:textColorHint="@color/WhiteSmoke" />
+
+    <EditText
+        android:id="@+id/inputDocumentoOdontologo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edittext_background"
+        android:drawablePadding="8dp"
+        android:hint="DNI"
+        android:inputType="number"
+        android:padding="8dp"
+        android:textColor="@color/WhiteSmoke"
+        android:textColorHint="@color/WhiteSmoke" />
+
+    <EditText
+        android:id="@+id/inputNumeroOdontologo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edittext_background"
+        android:drawablePadding="8dp"
+        android:hint="Telefono"
+        android:inputType="phone"
+        android:padding="8dp"
+        android:textColor="@color/WhiteSmoke"
+        android:textColorHint="@color/WhiteSmoke"/>
+
+    <TextView
+        android:id="@+id/inputFechaNacimientoOdontologo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="Fecha de nacimiento"
+        android:padding="8dp"
+        android:background="@drawable/edittext_background"
+        android:textColor="@color/WhiteSmoke"
+        android:textColorHint="@color/WhiteSmoke"
+        android:drawableStart="@drawable/ic_calendar"
+        android:drawablePadding="8dp"
+        android:focusable="true"
+        android:clickable="true" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Sexo: "
+            android:textColor="@color/WhiteSmoke"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupSexo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_corners"
+            android:orientation="horizontal"
+            android:paddingRight="8dp">
+            <RadioButton
+                android:id="@+id/radioMasculino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/black"
+                android:text="Masculino"
+                android:textColor="@color/black" />
+            <RadioButton
+                android:id="@+id/radioFemenino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/black"
+                android:text="Femenino"
+                android:textColor="@color/black" />
+        </RadioGroup>
+    </LinearLayout>
+    <Button
+        android:id="@+id/btnGuardarCita"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text="Guardar Odontologo"
+        android:backgroundTint="@color/letraDark"
+        android:textColor="@color/letraBtnDark"
+        android:textSize="18dp"
+        android:layout_marginTop="16dp" />
+</LinearLayout>
