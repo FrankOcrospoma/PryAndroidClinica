@@ -1,59 +1,73 @@
 package com.example.pryandroidclinica
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.pryandroidclinica.databinding.FragmentTratamientoBinding
+import com.example.pryandroidclinica.response.TratamientoResponse
+import com.example.pryandroidclinica.retrofit.RetrofitClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [TratamientosFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class TratamientosFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentTratamientoBinding? = null
+    private val binding get() = _binding!!
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var tratamientoAdapter: TratamientoAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.tratamiento, container, false)
+    ): View {
+        _binding = FragmentTratamientoBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TartamientosFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TratamientosFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        recyclerView = binding.recyclerViewTratamientos
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        tratamientoAdapter = TratamientoAdapter(emptyList()) // Inicializa con lista vacía
+        recyclerView.adapter = tratamientoAdapter
+
+        cargarTratamientos()
+    }
+
+    private fun cargarTratamientos() {
+        val apiService = RetrofitClient.createService()
+        val call = apiService.obtenerTratamientos()
+
+        call.enqueue(object : Callback<TratamientoResponse> {
+            override fun onResponse(call: Call<TratamientoResponse>, response: Response<TratamientoResponse>) {
+                if (response.isSuccessful && response.body()?.isStatus == true) {
+                    val tratamientos = response.body()?.getData()
+                    if (tratamientos != null) {
+                        tratamientoAdapter.actualizarLista(tratamientos)
+                    } else {
+                        Log.e("TratamientosFragment", "Error: Lista de tratamientos nula")
+                    }
+                } else {
+                    Log.e("TratamientosFragment", "Error al obtener tratamientos: ${response.code()} - ${response.message()}")
                 }
             }
+
+            override fun onFailure(call: Call<TratamientoResponse>, t: Throwable) {
+                Log.e("TratamientosFragment", "Error en la solicitud: ${t.message}", t)
+            }
+        })
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -4,6 +4,7 @@ import com.example.pryandroidclinica.response.CitasResponse;
 import com.example.pryandroidclinica.response.LoginResponse;
 import com.example.pryandroidclinica.response.OdontologosResponse;
 import com.example.pryandroidclinica.response.PacientesResponse;
+import com.example.pryandroidclinica.response.TratamientoResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -86,4 +87,7 @@ public interface ApiService {
             @Field("hora") String hora,
             @Field("motivo_consulta") String motivoConsulta
     );
+    @GET("/tratamiento/lista")
+    Call<TratamientoResponse> obtenerTratamientos();
+
 }

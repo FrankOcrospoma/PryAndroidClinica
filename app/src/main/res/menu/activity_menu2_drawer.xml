@@ -10,11 +10,6 @@
             android:icon="@drawable/home"
             android:title="Home" />
 
-        <item
-            android:id="@+id/nav_notificacion"
-            android:icon="@drawable/noti"
-            android:title="Notificaciones" />
-
 
 
         <item
@@ -33,9 +28,6 @@
             android:id="@+id/nav_manage_treatments"
             android:icon="@drawable/tratamiento"
             android:title="Gestión de Tratamientos" />
-        <item
-            android:id="@+id/nav_reports"
-            android:icon="@drawable/reportes"
-            android:title="Generación de Reportes" />
+
     </group>
 </menu>

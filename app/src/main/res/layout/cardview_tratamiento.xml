@@ -66,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:id="@+id/txtPaciente"
+                android:id="@+id/nombre"
                 android:text="Edu Culo Abierto"
                 android:textSize="14sp"
                 android:textColor="@color/black"/>
@@ -92,13 +92,15 @@
                     android:layout_width="5dp"
                     android:layout_height="match_parent"/>
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:id="@+id/txtEstado"
-                    android:text="ABIERTO"
-                    android:textSize="14sp"
-                    android:textColor="@color/black"/>
+                    android:id="@+id/costo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:text="50"
+                    android:textStyle="bold"
+                    android:layout_marginTop="8dp"/>
+
                 <Space
                     android:layout_width="5dp"
                     android:layout_height="match_parent"/>
