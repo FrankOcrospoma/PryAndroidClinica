@@ -1,13 +1,16 @@
 package com.example.pryandroidclinica
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResult
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.pryandroidclinica.databinding.FragmentTratamientoBinding
 import com.example.pryandroidclinica.response.TratamientoResponse
 import com.example.pryandroidclinica.retrofit.RetrofitClient
@@ -19,8 +22,6 @@ class TratamientosFragment : Fragment() {
 
     private var _binding: FragmentTratamientoBinding? = null
     private val binding get() = _binding!!
-
-    private lateinit var recyclerView: RecyclerView
     private lateinit var tratamientoAdapter: TratamientoAdapter
 
     override fun onCreateView(
@@ -34,10 +35,14 @@ class TratamientosFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recyclerView = binding.recyclerViewTratamientos
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        tratamientoAdapter = TratamientoAdapter(emptyList()) // Inicializa con lista vacía
-        recyclerView.adapter = tratamientoAdapter
+        binding.recyclerViewTratamientos.layoutManager = LinearLayoutManager(context)
+        tratamientoAdapter = TratamientoAdapter(emptyList()) { tratamiento ->
+            mostrarDialogoConfirmacion(tratamiento)
+        }
+        binding.recyclerViewTratamientos.adapter = tratamientoAdapter
+        binding.btnAgregarTratamiento.setOnClickListener {
+            findNavController().navigate(R.id.action_tratamientoFragment_to_agregarTratamientoFragment)
+        }
 
         cargarTratamientos()
     }
@@ -49,7 +54,7 @@ class TratamientosFragment : Fragment() {
         call.enqueue(object : Callback<TratamientoResponse> {
             override fun onResponse(call: Call<TratamientoResponse>, response: Response<TratamientoResponse>) {
                 if (response.isSuccessful && response.body()?.isStatus == true) {
-                    val tratamientos = response.body()?.getData()
+                    val tratamientos = response.body()?.data
                     if (tratamientos != null) {
                         tratamientoAdapter.actualizarLista(tratamientos)
                     } else {
@@ -62,6 +67,40 @@ class TratamientosFragment : Fragment() {
 
             override fun onFailure(call: Call<TratamientoResponse>, t: Throwable) {
                 Log.e("TratamientosFragment", "Error en la solicitud: ${t.message}", t)
+            }
+        })
+    }
+
+    private fun mostrarDialogoConfirmacion(tratamiento: TratamientoResponse.Tratamiento) {
+        AlertDialog.Builder(requireContext())
+            .setTitle("Confirmar eliminación")
+            .setMessage("¿Está seguro de que desea eliminar este tratamiento?")
+            .setPositiveButton("Aceptar") { _, _ ->
+                eliminarTratamiento(tratamiento)
+            }
+            .setNegativeButton("Cancelar", null)
+            .show()
+    }
+
+    private fun eliminarTratamiento(tratamiento: TratamientoResponse.Tratamiento) {
+        val apiService = RetrofitClient.createService()
+        val call = apiService.eliminarTratamiento(tratamiento.id)
+
+        call.enqueue(object : Callback<TratamientoResponse> {
+            override fun onResponse(call: Call<TratamientoResponse>, response: Response<TratamientoResponse>) {
+                if (response.isSuccessful && response.body()?.isStatus == true) {
+                    Toast.makeText(context, "Tratamiento eliminado correctamente", Toast.LENGTH_SHORT).show()
+                    cargarTratamientos()
+                } else {
+                    Log.e("TratamientosFragment", "Error al eliminar tratamiento: ${response.code()} - ${response.message()}")
+                    Toast.makeText(context, "Este tratamiento esta presenta en alguna cita", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<TratamientoResponse>, t: Throwable) {
+                Toast.makeText(context, "Tratamiento eliminado exitosamente", Toast.LENGTH_SHORT).show()
+                setFragmentResult("requestKey", Bundle().apply { putString("resultKey", "success") })
+                cargarTratamientos()
             }
         })
     }

@@ -6,139 +6,125 @@
     android:layout_margin="8dp"
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp"
-    android:backgroundTint="@color/letraDark"
-    >
+    android:backgroundTint="@color/letraDark">
 
     <LinearLayout
-        android:padding="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:background="@drawable/border"
-        >
+        android:orientation="horizontal"
+        android:padding="5dp">
 
         <ImageView
-            android:scaleType="fitCenter"
-            android:layout_gravity="center_vertical"
+            android:id="@+id/imgDetalleCita"
             android:layout_width="75dp"
             android:layout_height="105dp"
-            android:src="@drawable/ic_perfil"
-            android:id="@+id/imgDetalleCita"/>
+            android:layout_gravity="center_vertical"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_perfil" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="5dp">
-            <LinearLayout
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <Space
-                    android:layout_width="5dp"
-                    android:layout_height="match_parent"/>
+                android:layout_height="wrap_content">
+
                 <TextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/txtOdontologo"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Detalle Odondologo"
-                    android:textSize="18sp"
-                    android:gravity="center"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="5dp"
+                    android:gravity="center_vertical"
+                    android:text="Detalle Odontólogo"
                     android:textColor="@color/black"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
-            </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/btn_editar"
+                    android:layout_width="35dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="5dp"
+                    android:backgroundTint="@android:color/transparent"
+                    android:src="@drawable/baseline_edit" />
+
+                <ImageButton
+                    android:id="@+id/btn_eliminar"
+                    android:layout_width="35dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="45dp"
+                    android:backgroundTint="@android:color/transparent"
+                    android:src="@drawable/ic_cancel" />
+
+            </RelativeLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
-                    android:id="@+id/nombreTextView"
+                    android:id="@+id/dni"
                     android:layout_width="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:layout_height="wrap_content"
-                    android:text="Nombre: "
+                    android:text="DNI: "
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
+
                 <Space
                     android:layout_width="5dp"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent" />
+
                 <TextView
+                    android:id="@+id/txtOdondologoDNI"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:id="@+id/txtOdondologo"
-                    android:text="Edu Culo Abierto"
+                    android:text="dni"
                     android:textSize="14sp"
-                    android:textColor="@color/black"/>
-                <Space
-                    android:layout_width="5dp"
-                    android:layout_height="match_parent"/>
+                    android:textColor="@color/black" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/estadoTextView"
                     android:layout_width="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:layout_height="wrap_content"
-                    android:text="Estado: "
+                    android:text="EMAIL: "
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
+
                 <Space
                     android:layout_width="5dp"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent" />
+
                 <TextView
+                    android:id="@+id/txtOdonEmail"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:id="@+id/txtEstado"
                     android:text="ABIERTO"
                     android:textSize="14sp"
-                    android:textColor="@color/black"/>
-                <Space
-                    android:layout_width="5dp"
-                    android:layout_height="match_parent"/>
-
+                    android:textColor="@color/black" />
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
-
-                <Button
-                    android:id="@+id/btnEditar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/holo_orange_light"
-                    android:textColor="@android:color/black"
-                    android:text="Editar"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:cornerRadius="20dp" />
-
-                <Button
-                    android:id="@+id/btnEliminar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/holo_red_light"
-                    android:textColor="@android:color/black"
-                    android:text="Eliminar"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:cornerRadius="20dp" />
-
-            </LinearLayout>
-
-
 
         </LinearLayout>
-
-
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

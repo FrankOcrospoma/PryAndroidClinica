@@ -5,6 +5,7 @@ import java.util.List;
 public class PacientesResponse {
     private boolean status;
     private List<Paciente> data;
+    private Paciente singleData;
     private String message;
 
     public boolean isStatus() {
@@ -21,6 +22,14 @@ public class PacientesResponse {
 
     public void setData(List<Paciente> data) {
         this.data = data;
+    }
+
+    public Paciente getSingleData() {
+        return singleData;
+    }
+
+    public void setSingleData(Paciente singleData) {
+        this.singleData = singleData;
     }
 
     public String getMessage() {

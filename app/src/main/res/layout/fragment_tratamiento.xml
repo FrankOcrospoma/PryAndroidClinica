@@ -7,18 +7,30 @@
     tools:context=".HistorialFragment"
     android:background="@color/clinicaDark">
 
-
+    <Button
+        android:id="@+id/btnAgregarTratamiento"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/letraDark"
+        android:text="Agregar Tratamiento"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        app:cornerRadius="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="match_parent"
+        android:layout_below="@id/btnAgregarTratamiento"
+        android:layout_marginTop="10dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewTratamientos"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:backgroundTint="@color/letraDark"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

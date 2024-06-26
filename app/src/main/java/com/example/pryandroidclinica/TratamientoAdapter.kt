@@ -6,7 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.pryandroidclinica.databinding.CardviewTratamientoBinding
 import com.example.pryandroidclinica.response.TratamientoResponse
 
-class TratamientoAdapter(private var tratamientos: List<TratamientoResponse.Tratamiento>) : RecyclerView.Adapter<TratamientoAdapter.TratamientoViewHolder>() {
+class TratamientoAdapter(
+    private var tratamientos: List<TratamientoResponse.Tratamiento>,
+    private val onEliminarClick: (TratamientoResponse.Tratamiento) -> Unit
+) : RecyclerView.Adapter<TratamientoAdapter.TratamientoViewHolder>() {
 
     fun actualizarLista(nuevaLista: List<TratamientoResponse.Tratamiento>) {
         tratamientos = nuevaLista
@@ -28,8 +31,13 @@ class TratamientoAdapter(private var tratamientos: List<TratamientoResponse.Trat
 
     inner class TratamientoViewHolder(private val binding: CardviewTratamientoBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(tratamiento: TratamientoResponse.Tratamiento) {
-            binding.nombre.text = tratamiento.nombre
-            binding.costo.text = tratamiento.costo?.toString() ?: "Costo no disponible"
+            binding.nombreTratamiento.text = tratamiento.nombre
+            binding.descripcionTratamiento.text = tratamiento.descripcion
+            binding.txtCosto.text = tratamiento.costo?.toString() ?: "Costo no disponible"
+            binding.btnEliminar.setOnClickListener {
+                onEliminarClick(tratamiento)
+            }
         }
+
     }
 }

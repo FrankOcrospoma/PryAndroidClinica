@@ -46,14 +46,22 @@
                     android:textStyle="bold" />
 
                 <ImageButton
-                    android:id="@+id/btn_retroceder"
+                    android:id="@+id/btnCancelar"
                     android:layout_width="35dp"
                     android:layout_height="48dp"
                     android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="5dp"
+                    android:layout_marginEnd="45dp"
                     android:backgroundTint="@android:color/transparent"
                     android:src="@drawable/ic_cancel" />
+
+                <ImageButton
+                    android:id="@+id/btnReprogramar"
+                    android:layout_width="35dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="5dp"
+                    android:backgroundTint="@android:color/transparent"
+                    android:src="@drawable/baseline_clock" />
 
             </RelativeLayout>
 

@@ -6,7 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.pryandroidclinica.databinding.CardviewOdontologoBinding
 import com.example.pryandroidclinica.response.OdontologosResponse
 
-class OdontologoAdapter(private var odontologos: List<OdontologosResponse.Odontologo>) : RecyclerView.Adapter<OdontologoAdapter.OdontologoViewHolder>() {
+class OdontologoAdapter(
+    private var odontologos: List<OdontologosResponse.Odontologo>,
+    private val onDeleteClick: (OdontologosResponse.Odontologo) -> Unit
+) : RecyclerView.Adapter<OdontologoAdapter.OdontologoViewHolder>() {
 
     fun actualizarLista(nuevaLista: List<OdontologosResponse.Odontologo>) {
         odontologos = nuevaLista
@@ -28,8 +31,12 @@ class OdontologoAdapter(private var odontologos: List<OdontologosResponse.Odonto
 
     inner class OdontologoViewHolder(private val binding: CardviewOdontologoBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(odontologo: OdontologosResponse.Odontologo) {
-            binding.nombreTextView.text = odontologo.nombre
-            binding.txtEstado.text = odontologo.especialidad
+            binding.txtOdontologo.text = odontologo.nombre
+            binding.txtOdondologoDNI.text = odontologo.documento
+            binding.txtOdonEmail.text = odontologo.email
+            binding.btnEliminar.setOnClickListener {
+                onDeleteClick(odontologo)
+            }
         }
     }
 }

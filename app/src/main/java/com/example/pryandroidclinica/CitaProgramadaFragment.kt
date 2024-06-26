@@ -1,17 +1,15 @@
 package com.example.pryandroidclinica
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pryandroidclinica.databinding.CitasProgramadasLayoutBinding
 import com.example.pryandroidclinica.response.CitasResponse
-import com.example.pryandroidclinica.retrofit.ApiService
 import com.example.pryandroidclinica.retrofit.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -36,11 +34,8 @@ class CitaProgramadaFragment : Fragment() {
         // Configurar RecyclerView
         binding.recyclerViewCitas.layoutManager = LinearLayoutManager(context)
 
-        // Configurar botón "Agregar Cita"
-        val btnAgregarCita: Button = binding.btnAgregarCita
-        btnAgregarCita.setOnClickListener {
-            val intent = Intent(activity, CitasActivity::class.java)
-            startActivity(intent)
+        binding.btnAgregarCita.setOnClickListener {
+            findNavController().navigate(R.id.action_citasFragment_to_agregarCitaFragment)
         }
 
         // Obtener citas programadas
@@ -72,8 +67,33 @@ class CitaProgramadaFragment : Fragment() {
     }
 
     private fun mostrarCitas(citas: List<CitasResponse.Cita>) {
-        val adapter = CitaAdapter(citas)
+        val adapter = CitaAdapter(citas, this::reprogramarCita, this::eliminarCita)
         binding.recyclerViewCitas.adapter = adapter
+    }
+
+    private fun reprogramarCita(cita: CitasResponse.Cita) {
+      //  val action = CitaProgramadaFragmentDirections.actionCitasFragmentToAgregarCitaFragment(cita)
+      //  findNavController().navigate(action)
+    }
+
+    private fun eliminarCita(cita: CitasResponse.Cita) {
+        val apiService = RetrofitClient.createService()
+        val call = apiService.cancelarCita(cita.cita_id)
+
+        call.enqueue(object : Callback<CitasResponse> {
+            override fun onResponse(call: Call<CitasResponse>, response: Response<CitasResponse>) {
+                if (response.isSuccessful && response.body()?.isStatus == true) {
+                    Toast.makeText(context, "Cita eliminada exitosamente", Toast.LENGTH_SHORT).show()
+                    obtenerCitasProgramadas() // Refrescar la lista de citas
+                } else {
+                    mostrarMensajeError()
+                }
+            }
+
+            override fun onFailure(call: Call<CitasResponse>, t: Throwable) {
+                mostrarMensajeError()
+            }
+        })
     }
 
     private fun mostrarMensajeSinCitas() {

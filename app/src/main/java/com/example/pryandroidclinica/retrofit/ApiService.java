@@ -7,9 +7,11 @@ import com.example.pryandroidclinica.response.PacientesResponse;
 import com.example.pryandroidclinica.response.TratamientoResponse;
 
 import retrofit2.Call;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.HTTP;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import okhttp3.MultipartBody;
@@ -108,13 +110,63 @@ public interface ApiService {
             @Field("telefono") String telefono
     );
 
+    @FormUrlEncoded
+    @POST("/tratamiento/registrar")
+    Call<TratamientoResponse> registrarTratamiento(
+            @Field("nombre") String nombre,
+            @Field("descripcion") String descripcion,
+            @Field("costo") float costo
+
+    );
+
+
     @GET("/usuario/lista/pacientes")
     Call<PacientesResponse> listaPacientes();
+
+    @FormUrlEncoded
+    @POST("/usuario/agregar/odontologo")
+    Call<OdontologosResponse> agregarOdontologo(
+            @Field("nombreUsuario") String nombreUsuario,
+            @Field("email") String email,
+            @Field("contrasena") String contrasena,
+            @Field("estado") int estado,
+            @Field("estado_token") int estadoToken,
+            @Field("nombre") String nombre,
+            @Field("apeCompleto") String apeCompleto,
+            @Field("fechaNac") String fechaNac,
+            @Field("documento") String documento,
+            @Field("tipo_documento_id") int tipoDocumentoId,
+            @Field("sexo") int sexo,
+            @Field("direccion") String direccion,
+            @Field("telefono") String telefono
+    );
 
     @GET("/usuario/lista/odontologos")
     Call<OdontologosResponse> listaOdontologos();
 
 
+    @HTTP(method = "DELETE", path = "/tratamiento/eliminar", hasBody = true)
+    @FormUrlEncoded
+    Call<TratamientoResponse> eliminarTratamiento(
+            @Field("id") int id
+    );
 
+
+    @HTTP(method = "DELETE", path = "/usuario/eliminar", hasBody = true)
+    @FormUrlEncoded
+    Call<PacientesResponse> eliminarPaciente(
+            @Field("id") int id
+    );
+    @HTTP(method = "DELETE", path = "/usuario/eliminar", hasBody = true)
+    @FormUrlEncoded
+    Call<OdontologosResponse> eliminarOdontologo(
+            @Field("id") int id
+    );
+
+    @HTTP(method = "DELETE", path = "/usuario/eliminar", hasBody = true)
+    @FormUrlEncoded
+    Call<CitasResponse> cancelarCita(
+            @Field("id") int id
+    );
 
 }

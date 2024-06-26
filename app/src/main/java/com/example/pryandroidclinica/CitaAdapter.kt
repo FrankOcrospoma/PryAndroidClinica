@@ -3,11 +3,16 @@ package com.example.pryandroidclinica
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pryandroidclinica.databinding.CitaItemBinding
 import com.example.pryandroidclinica.response.CitasResponse
 
-class CitaAdapter(private val citas: List<CitasResponse.Cita>) : RecyclerView.Adapter<CitaAdapter.CitaViewHolder>() {
+class CitaAdapter(
+    private val citas: List<CitasResponse.Cita>,
+    private val onEdit: (CitasResponse.Cita) -> Unit,
+    private val onDelete: (CitasResponse.Cita) -> Unit
+) : RecyclerView.Adapter<CitaAdapter.CitaViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CitaViewHolder {
         val binding = CitaItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -28,7 +33,12 @@ class CitaAdapter(private val citas: List<CitasResponse.Cita>) : RecyclerView.Ad
             binding.txtpaciente.text = cita.nombre_paciente
             binding.txtdoc.text = cita.nombre_odontologo
 
-            // Aquí puedes añadir listeners para los botones si es necesario
+           binding.btnReprogramar.setOnClickListener {
+               onEdit(cita)
+           }
+            binding.btnCancelar.setOnClickListener {
+                onDelete(cita)
+            }
         }
     }
 }

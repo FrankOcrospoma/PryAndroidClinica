@@ -1,6 +1,5 @@
 package com.example.pryandroidclinica.response;
 
-import com.example.pryandroidclinica.model.Odontologo;
 import java.util.List;
 
 public class OdontologosResponse {
@@ -34,87 +33,75 @@ public class OdontologosResponse {
 
     public static class Odontologo {
         private int id;
-        private String nombre;
+        private String nombreUsuario;
         private String email;
+        private String contrasena;
         private int estado;
+        private int estadoToken;
+        private String nombre;
         private String apeCompleto;
-        private String telefono;
+        private String fechaNac;
+        private String documento;
+        private int tipoDocumentoId;
+        private int sexo;
         private String direccion;
+        private String telefono;
 
-        public String getApeCompleto() {
-            return apeCompleto;
-        }
-
-        public void setApeCompleto(String apeCompleto) {
-            this.apeCompleto = apeCompleto;
-        }
-
-        public int getEstado() {
-            return estado;
-        }
-
-        public void setEstado(int estado) {
-            this.estado = estado;
-        }
-
-        private String especialidad;
-        private String foto;
-
-        // Getters y setters
+        // Getters
         public int getId() {
             return id;
         }
 
-        public void setId(int id) {
-            this.id = id;
-        }
-
-        public String getNombre() {
-            return nombre;
-        }
-
-        public void setNombre(String nombre) {
-            this.nombre = nombre;
+        public String getNombreUsuario() {
+            return nombreUsuario;
         }
 
         public String getEmail() {
             return email;
         }
 
-        public void setEmail(String email) {
-            this.email = email;
+        public String getContrasena() {
+            return contrasena;
         }
 
-        public String getTelefono() {
-            return telefono;
+        public int getEstado() {
+            return estado;
         }
 
-        public void setTelefono(String telefono) {
-            this.telefono = telefono;
+        public int getEstadoToken() {
+            return estadoToken;
+        }
+
+        public String getNombre() {
+            return nombre;
+        }
+
+        public String getApeCompleto() {
+            return apeCompleto;
+        }
+
+        public String getFechaNac() {
+            return fechaNac;
+        }
+
+        public String getDocumento() {
+            return documento;
+        }
+
+        public int getTipoDocumentoId() {
+            return tipoDocumentoId;
+        }
+
+        public int getSexo() {
+            return sexo;
         }
 
         public String getDireccion() {
             return direccion;
         }
 
-        public void setDireccion(String direccion) {
-            this.direccion = direccion;
-        }
-
-        public String getEspecialidad() {
-            return especialidad;
-        }
-
-        public void setEspecialidad(String especialidad) {
-            this.especialidad = especialidad;
-        }
-
-        public String getFoto() {
-            return foto;
-        }
-
-        public void setFoto(String foto) {
-            this.foto = foto;
+        public String getTelefono() {
+            return telefono;
         }
     }
 }

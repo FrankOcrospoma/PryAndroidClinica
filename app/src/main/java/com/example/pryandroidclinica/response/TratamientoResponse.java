@@ -35,8 +35,7 @@ public class TratamientoResponse {
         private int id;
         private String nombre;
         private String descripcion;
-        private double costo;
-        private int atencion_id;
+        private float costo;
 
         // Getters
         public int getId() {
@@ -51,12 +50,8 @@ public class TratamientoResponse {
             return descripcion;
         }
 
-        public double getCosto() {
+        public float getCosto() {
             return costo;
-        }
-
-        public int getAtencion_id() {
-            return atencion_id;
         }
     }
 }

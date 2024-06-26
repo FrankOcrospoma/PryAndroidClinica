@@ -1,11 +1,10 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@color/clinicaDark"
-    tools:context=".AgregarOdontologoFragment">
+    android:padding="20dp"
+    android:background="@color/clinicaDark">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -19,6 +18,7 @@
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="4dp"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -32,10 +32,10 @@
                 android:layout_height="4dp"/>
 
             <EditText
-                android:id="@+id/txtCrearNombreUsuarioOdontologo"
+                android:id="@+id/txtCrearNombreUsuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nombre Usuario Odontologo"
+                android:hint="Nombre Usuario Paciente"
                 android:inputType="text"
                 android:padding="8dp"
                 android:layout_marginBottom="10dp"
@@ -47,6 +47,7 @@
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="10dp"/>
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -61,10 +62,10 @@
                 android:layout_height="4dp"/>
 
             <EditText
-                android:id="@+id/inputNombreOdontologo"
+                android:id="@+id/txtCrearNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nombre Odontologo"
+                android:hint="Nombre Paciente"
                 android:inputType="text"
                 android:padding="8dp"
                 android:layout_marginBottom="10dp"
@@ -73,9 +74,6 @@
                 android:textColorHint="@color/WhiteSmoke"
                 android:drawablePadding="8dp"/>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -90,10 +88,10 @@
                 android:layout_height="4dp"/>
 
             <EditText
-                android:id="@+id/inputApellidoOdontologo"
+                android:id="@+id/txtCrearApellidos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Apellido Odontologo"
+                android:hint="Ingrese Apellidos"
                 android:inputType="text"
                 android:padding="8dp"
                 android:layout_marginBottom="10dp"
@@ -119,11 +117,11 @@
                 android:layout_height="4dp"/>
 
             <EditText
-                android:id="@+id/inputEmailOdontologo"
+                android:id="@+id/txtCrearEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="example@hotmail.com"
-                android:inputType="textEmailAddress"
+                android:inputType="text"
                 android:padding="8dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/edittext_background"
@@ -148,11 +146,11 @@
                 android:layout_height="4dp"/>
 
             <EditText
-                android:id="@+id/inputPasswordOdontologo"
+                android:id="@+id/txtCrearContraseA"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:padding="8dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/edittext_background"
@@ -167,9 +165,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="10dp"/>
 
-
-
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -183,7 +178,7 @@
                 android:layout_height="4dp"/>
 
             <Spinner
-                android:id="@+id/spinnerTipoDocumentoOdontologo"
+                android:id="@+id/spinnerTipoDocumento"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:background="@drawable/edittext_background"
@@ -207,10 +202,10 @@
                 android:layout_height="4dp"/>
 
             <EditText
-                android:id="@+id/inputDocumentoOdontologo"
+                android:id="@+id/txtCrearDocumento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Número de documento"
+                android:hint="Numero de documento"
                 android:inputType="number"
                 android:padding="8dp"
                 android:layout_marginBottom="10dp"
@@ -236,21 +231,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="4dp"/>
 
-            <TextView
-                android:id="@+id/inputFechaNacimientoOdontologo"
+            <EditText
+                android:id="@+id/txtFechaNacimiento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:hint="Fecha de nacimiento"
+                android:hint="Fecha de Nacimiento"
+                android:inputType="text"
                 android:padding="8dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/edittext_background"
                 android:textColor="@color/WhiteSmoke"
                 android:textColorHint="@color/WhiteSmoke"
-                android:drawableStart="@drawable/ic_calendar"
                 android:drawablePadding="8dp"
-                android:focusable="true"
-                android:clickable="true" />
-
+                android:focusable="false"/>
 
             <Space
                 android:layout_width="match_parent"
@@ -269,11 +262,11 @@
                 android:layout_height="4dp"/>
 
             <EditText
-                android:id="@+id/inputNumeroOdontologo"
+                android:id="@+id/txtTelefono"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Teléfono"
-                android:inputType="phone"
+                android:hint="Ingrese Teléfono"
+                android:inputType="number"
                 android:padding="8dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/edittext_background"
@@ -299,10 +292,10 @@
                 android:layout_height="4dp"/>
 
             <EditText
-                android:id="@+id/inputDireccionOdontologo"
+                android:id="@+id/txtDireccion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Ingrese Dirección"
+                android:hint="Ingrese Direccion"
                 android:inputType="text"
                 android:padding="8dp"
                 android:layout_marginBottom="10dp"
@@ -347,17 +340,19 @@
                     android:textColor="@color/black" />
             </RadioGroup>
 
-            <Button
-                android:id="@+id/btnGuardarOdontologo"
-                android:layout_width="wrap_content"
-                android:layout_gravity="center"
-                android:layout_height="wrap_content"
-                android:text="Guardar Odontologo"
-                android:backgroundTint="@color/letraDark"
-                android:textColor="@color/letraBtnDark"
-                android:textSize="18dp"
-                android:layout_marginTop="16dp" />
-        </LinearLayout>
 
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/btnRegistrar"
+                android:text="Registrar"
+                android:textSize="18sp"
+                android:backgroundTint="@color/purple"
+                android:textColor="@color/white"
+                app:cornerRadius="20dp"/>
+
+        </LinearLayout>
     </ScrollView>
-</LinearLayout>
+
+</RelativeLayout>

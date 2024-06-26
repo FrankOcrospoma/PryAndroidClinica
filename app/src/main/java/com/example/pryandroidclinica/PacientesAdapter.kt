@@ -1,12 +1,15 @@
-package com.example.pryandroidclinica
+package com.example.pryandroidclinica;
 
-import android.view.LayoutInflater
-import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
-import com.example.pryandroidclinica.databinding.CardviewPacienteBinding
-import com.example.pryandroidclinica.response.PacientesResponse
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import androidx.recyclerview.widget.RecyclerView;
+import com.example.pryandroidclinica.databinding.CardviewPacienteBinding;
+import com.example.pryandroidclinica.response.PacientesResponse;
 
-class PacienteAdapter(private var pacientes: List<PacientesResponse.Paciente>) : RecyclerView.Adapter<PacienteAdapter.PacienteViewHolder>() {
+class PacienteAdapter(
+    private var pacientes: List<PacientesResponse.Paciente>,
+    private val onDeleteClick: (PacientesResponse.Paciente) -> Unit
+) : RecyclerView.Adapter<PacienteAdapter.PacienteViewHolder>() {
 
     fun actualizarLista(nuevaLista: List<PacientesResponse.Paciente>) {
         pacientes = nuevaLista
@@ -28,8 +31,12 @@ class PacienteAdapter(private var pacientes: List<PacientesResponse.Paciente>) :
 
     inner class PacienteViewHolder(private val binding: CardviewPacienteBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(paciente: PacientesResponse.Paciente) {
-            binding.nombreTextView.text = paciente.nombre
-            binding.txtEstado.text = paciente.estado.toString()
+            binding.nombrePacienteTextView.text = paciente.nombre
+            binding.txtPacienteDNI.text = paciente.documento
+            binding.txtPacienteEmail.text = paciente.email
+            binding.btnEliminar.setOnClickListener {
+                onDeleteClick(paciente)
+            }
         }
     }
 }

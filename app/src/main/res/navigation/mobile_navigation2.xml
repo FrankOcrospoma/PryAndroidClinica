@@ -6,35 +6,6 @@
     app:startDestination="@+id/nav_home">
 
     <fragment
-        android:id="@+id/nav_citas"
-        android:name="com.example.pryandroidclinica.CitaProgramadaFragment"
-        android:label="@string/menu_citas"
-        tools:layout="@layout/citas_programadas_layout" />
-
-
-
-    <fragment
-            android:id="@+id/nav_manage_appointments"
-        android:name="com.example.pryandroidclinica.NotificacionFragment"
-        android:label="@string/menu_notificaciones"
-        tools:layout="@layout/fragment_notificacion" />
-    <fragment
-        android:id="@+id/nav_manage_patients"
-        android:name="com.example.pryandroidclinica.PacientesFragment"
-        android:label="@string/menu_pacientes"
-        tools:layout="@layout/paciente" />
-
-    <fragment
-        android:id="@+id/nav_manage_dentists"
-        android:name="com.example.pryandroidclinica.OdontologosFragment"
-        android:label="@string/menu_odondologo"
-        tools:layout="@layout/odontologo" />
-    <fragment
-        android:id="@+id/nav_manage_treatments"
-        android:name="com.example.pryandroidclinica.TratamientosFragment"
-        android:label="@string/menu_tratamientos"
-        tools:layout="@layout/tratamiento" />
-    <fragment
         android:id="@+id/nav_home"
         android:name="com.example.pryandroidclinica.ui.home.HomeFragment"
         android:label="@string/menu_home"
@@ -45,4 +16,68 @@
         android:name="com.example.pryandroidclinica.ui.slideshow.SlideshowFragment"
         android:label="Perfil"
         tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/nav_citas"
+        android:name="com.example.pryandroidclinica.CitaProgramadaFragment"
+        android:label="@string/menu_citas"
+        tools:layout="@layout/citas_programadas_layout">
+        <action
+            android:id="@+id/action_citasFragment_to_agregarCitaFragment"
+            app:destination="@id/nav_agregar_cita" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_manage_patients"
+        android:name="com.example.pryandroidclinica.PacientesFragment"
+        android:label="@string/menu_pacientes"
+        tools:layout="@layout/paciente">
+        <action
+            android:id="@+id/action_pacientesFragment_to_agregarPacienteFragment"
+            app:destination="@id/nav_agregar_paciente" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_manage_dentists"
+        android:name="com.example.pryandroidclinica.OdontologosFragment"
+        android:label="@string/menu_odondologo"
+        tools:layout="@layout/odontologo">
+        <action
+            android:id="@+id/action_odontologosFragment_to_agregarOdontologoFragment"
+            app:destination="@id/nav_agregar_odontologo" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_manage_treatments"
+        android:name="com.example.pryandroidclinica.TratamientosFragment"
+        android:label="@string/menu_tratamientos"
+        tools:layout="@layout/tratamiento">
+        <action
+            android:id="@+id/action_tratamientoFragment_to_agregarTratamientoFragment"
+            app:destination="@id/nav_agregar_tratamiento" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_agregar_paciente"
+        android:name="com.example.pryandroidclinica.AgregarPacienteFragment"
+        android:label="Agregar Paciente"
+        tools:layout="@layout/agregar_paciente" />
+
+    <fragment
+        android:id="@+id/nav_agregar_odontologo"
+        android:name="com.example.pryandroidclinica.AgregarOdontologoFragment"
+        android:label="Agregar Odontologo"
+        tools:layout="@layout/agregar_odontologo_layout" />
+
+    <fragment
+        android:id="@+id/nav_agregar_tratamiento"
+        android:name="com.example.pryandroidclinica.AgregarTratamientoFragment"
+        android:label="Agregar Tratamiento"
+        tools:layout="@layout/agregar_tratamiento" />
+
+    <fragment
+        android:id="@+id/nav_agregar_cita"
+        android:name="com.example.pryandroidclinica.AgregarCitaFragment"
+        android:label="Agregar Cita"
+        tools:layout="@layout/agregar_cita_layout" />
 </navigation>
