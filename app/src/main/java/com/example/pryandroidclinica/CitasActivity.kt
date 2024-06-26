@@ -182,7 +182,7 @@ class CitasActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val pacientesResponse = response.body()
                     if (pacientesResponse != null && pacientesResponse.isStatus) {
-                        pacientesList = pacientesResponse.data.map { Paciente(it.id, "${it.nombre} ${it.ape_completo}") }
+                        pacientesList = pacientesResponse.data.map { Paciente(it.id, "${it.nombre} ${it.apeCompleto}") }
                         val adapterPaciente = CustomArrayAdapter(this@CitasActivity, pacientesList)
                         adapterPaciente.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                         spinnerPaciente.adapter = adapterPaciente

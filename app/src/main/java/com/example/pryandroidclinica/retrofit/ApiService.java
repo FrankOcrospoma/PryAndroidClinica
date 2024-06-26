@@ -19,7 +19,7 @@ import retrofit2.http.Path;
 
 public interface ApiService {
     @FormUrlEncoded
-    @POST("/login")
+    @POST("/loginAdmin")
     Call<LoginResponse> login(@Field("email") String email, @Field("clave") String clave);
 
     @FormUrlEncoded
@@ -89,5 +89,26 @@ public interface ApiService {
     );
     @GET("/tratamiento/lista")
     Call<TratamientoResponse> obtenerTratamientos();
+
+    @FormUrlEncoded
+    @POST("/usuario/agregar/paciente")
+    Call<PacientesResponse> agregarPaciente(
+            @Field("nombreUsuario") String nombreUsuario,
+            @Field("email") String email,
+            @Field("contrasena") String contrasena,
+            @Field("estado") int estado,
+            @Field("estado_token") int estadoToken,
+            @Field("nombre") String nombre,
+            @Field("apeCompleto") String apeCompleto,
+            @Field("fechaNac") String fechaNac,
+            @Field("documento") String documento,
+            @Field("tipo_documento_id") int tipoDocumentoId,
+            @Field("sexo") int sexo,
+            @Field("direccion") String direccion,
+            @Field("telefono") String telefono
+    );
+
+    @GET("/usuario/lista/pacientes")
+    Call<PacientesResponse> listaPacientes();
 
 }

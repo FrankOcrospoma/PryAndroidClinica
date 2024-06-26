@@ -1,59 +1,69 @@
 package com.example.pryandroidclinica
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.pryandroidclinica.databinding.FragmentPacienteBinding
+import com.example.pryandroidclinica.response.PacientesResponse
+import com.example.pryandroidclinica.retrofit.RetrofitClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [PacientesFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class PacientesFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentPacienteBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var pacienteAdapter: PacienteAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.paciente, container, false)
+    ): View {
+        _binding = FragmentPacienteBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment PacientesFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            PacientesFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.recyclerViewPacientes.layoutManager = LinearLayoutManager(context)
+        pacienteAdapter = PacienteAdapter(emptyList())
+        binding.recyclerViewPacientes.adapter = pacienteAdapter
+
+        cargarPacientes()
+    }
+
+    private fun cargarPacientes() {
+        val apiService = RetrofitClient.createService()
+        val call = apiService.obtenerPacientes()
+
+        call.enqueue(object : Callback<PacientesResponse> {
+            override fun onResponse(call: Call<PacientesResponse>, response: Response<PacientesResponse>) {
+                if (response.isSuccessful && response.body()?.isStatus == true) {
+                    val pacientes = response.body()?.data
+                    if (pacientes != null) {
+                        pacienteAdapter.actualizarLista(pacientes)
+                    } else {
+                        Log.e("PacientesFragment", "Error: Lista de pacientes nula")
+                    }
+                } else {
+                    Log.e("PacientesFragment", "Error al obtener pacientes: ${response.code()} - ${response.message()}")
                 }
             }
+
+            override fun onFailure(call: Call<PacientesResponse>, t: Throwable) {
+                Log.e("PacientesFragment", "Error en la solicitud: ${t.message}", t)
+            }
+        })
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
