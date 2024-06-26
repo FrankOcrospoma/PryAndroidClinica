@@ -20,6 +20,8 @@
 
     <string name="menu_home">Home</string>
     <string name="menu_pacientes">Pacientes</string>
+    <string name="menu_odondologo">Odondologo</string>
+    <string name="menu_tratamientos">Tratamientos</string>
     <string name="menu_notificaciones">Notificaciónes</string>
     <string name="menu_citas">Citas Programadas</string>
     <string name="menu_gallery">Gallery</string>

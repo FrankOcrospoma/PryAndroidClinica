@@ -210,7 +210,7 @@ class CitasActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val odontologosResponse = response.body()
                     if (odontologosResponse != null && odontologosResponse.isStatus) {
-                        odontologosList = odontologosResponse.data.map { Odontologo(it.id, "${it.nombre} ${it.ape_completo}") }
+                        odontologosList = odontologosResponse.data.map { Odontologo(it.id, "${it.nombre} ${it.apeCompleto}") }
                         val adapterOdontologo = CustomArrayAdapter(this@CitasActivity, odontologosList)
                         adapterOdontologo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                         spinnerOdontologo.adapter = adapterOdontologo

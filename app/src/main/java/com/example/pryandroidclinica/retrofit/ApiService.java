@@ -111,4 +111,10 @@ public interface ApiService {
     @GET("/usuario/lista/pacientes")
     Call<PacientesResponse> listaPacientes();
 
+    @GET("/usuario/lista/odontologos")
+    Call<OdontologosResponse> listaOdontologos();
+
+
+
+
 }

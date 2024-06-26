@@ -23,10 +23,16 @@
         android:name="com.example.pryandroidclinica.PacientesFragment"
         android:label="@string/menu_pacientes"
         tools:layout="@layout/paciente" />
+
+    <fragment
+        android:id="@+id/nav_manage_dentists"
+        android:name="com.example.pryandroidclinica.OdontologosFragment"
+        android:label="@string/menu_odondologo"
+        tools:layout="@layout/odontologo" />
     <fragment
         android:id="@+id/nav_manage_treatments"
         android:name="com.example.pryandroidclinica.TratamientosFragment"
-        android:label="@string/menu_pacientes"
+        android:label="@string/menu_tratamientos"
         tools:layout="@layout/tratamiento" />
     <fragment
         android:id="@+id/nav_home"
