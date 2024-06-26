@@ -31,7 +31,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".UserProfileActivity" />
-        <activity android:name=".NotificacionActivity" />
+        <activity android:name=".ValidacionEmailActivity" />
+        <activity android:name=".CodigoValidacionActivity"></activity>
+        <activity android:name=".CitasActivity" />
     </application>
 
 </manifest>

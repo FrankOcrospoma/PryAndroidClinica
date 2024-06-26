@@ -45,4 +45,6 @@ public class RetrofitClient {
     public static ApiService createService(){
         return urlComercial.create(ApiService.class);
     }
+
+
 }

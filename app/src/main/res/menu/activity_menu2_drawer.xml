@@ -21,7 +21,7 @@
             android:icon="@drawable/pacientes"
             android:title="Gestión de Pacientes" />
         <item
-            android:id="@+id/nav_manage_appointments"
+            android:id="@+id/nav_citas"
             android:icon="@drawable/citas"
             android:title="Gestión de Citas" />
         <item

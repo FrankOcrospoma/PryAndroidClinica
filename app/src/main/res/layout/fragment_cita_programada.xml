@@ -18,6 +18,6 @@
             android:id="@+id/recyclerViewCitas"
             android:padding="8dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/cardview_cita_programada"/>
+            tools:listitem="@layout/cita_item"/>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </RelativeLayout>

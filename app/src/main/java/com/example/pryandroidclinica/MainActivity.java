@@ -7,18 +7,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
 import com.example.pryandroidclinica.retrofit.ApiService;
 import com.example.pryandroidclinica.retrofit.RetrofitClient;
 import com.example.pryandroidclinica.response.LoginResponse;
-import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import java.io.IOException;
@@ -34,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     EditText username;
     EditText password;
     Button loginButton;
+    TextView txtOlvidasteContrasena;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         username = findViewById(R.id.txtIngresarUsuario);
         password = findViewById(R.id.txtIngresarContraseña);
         loginButton = findViewById(R.id.btnIniciarSesion);
-
+        txtOlvidasteContrasena = findViewById(R.id.txtOlvidasteContrasena);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +58,14 @@ public class MainActivity extends AppCompatActivity {
 
                 // Llamar a la API de login
                 loginUser(inputUsername, md5Password);
+            }
+        });
+
+        txtOlvidasteContrasena.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ValidacionEmailActivity.class);
+                startActivity(intent);
             }
         });
     }

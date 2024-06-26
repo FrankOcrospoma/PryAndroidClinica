@@ -6,11 +6,23 @@
     app:startDestination="@+id/nav_home">
 
     <fragment
-        android:id="@+id/nav_notificacion"
+        android:id="@+id/nav_citas"
+        android:name="com.example.pryandroidclinica.CitaProgramadaFragment"
+        android:label="@string/menu_citas"
+        tools:layout="@layout/citas_programadas_layout" />
+
+
+
+    <fragment
+            android:id="@+id/nav_manage_appointments"
         android:name="com.example.pryandroidclinica.NotificacionFragment"
         android:label="@string/menu_notificaciones"
         tools:layout="@layout/fragment_notificacion" />
-
+    <fragment
+        android:id="@+id/nav_manage_patients"
+        android:name="com.example.pryandroidclinica.PacientesFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/paciente" />
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.pryandroidclinica.ui.home.HomeFragment"

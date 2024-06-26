@@ -5,7 +5,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center"
     android:orientation="vertical"
+    android:background="@drawable/loginbkg"
     android:padding="20dp">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,21 +39,22 @@
             android:textStyle="bold"/>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="match_parent"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
         android:id="@+id/input_layout_email_recuperar"
         app:endIconMode="clear_text"
         android:layout_gravity="center"
         android:textColorHint="@color/black"
+
         app:startIconDrawable="@drawable/ic_email_recuperar"
         android:hint="Ingrese Email">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:backgroundTint="@color/letraDark"
             android:textColor="@color/black"
-            android:background="@drawable/custom_edittext"
+            android:background="@color/letraDark"
             android:id="@+id/txtEmail"
             android:inputType="textEmailAddress"
             android:text=""/>
@@ -73,4 +80,5 @@
             android:layout_width="wrap_content"
             android:layout_height="20dp"/>
     </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

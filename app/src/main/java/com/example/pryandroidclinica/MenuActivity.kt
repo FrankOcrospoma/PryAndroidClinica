@@ -41,7 +41,7 @@ class MenuActivity : AppCompatActivity() {
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_menu2)
         appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.nav_home, R.id.nav_notificacion, R.id.nav_gallery, R.id.nav_slideshow), drawerLayout)
+            R.id.nav_home, R.id.nav_notificacion, R.id.nav_manage_patients, R.id.nav_manage_appointments, R.id.nav_citas, R.id.nav_gallery, R.id.nav_slideshow), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
@@ -88,10 +88,9 @@ class MenuActivity : AppCompatActivity() {
             })
             .into(navHeaderImageView)
 
-        val nombreUsuario2 = sharedPreferences.getString("nombreUsuario", "Jane Doe")
 
-        val txtNombreUsuario: TextView = findViewById(R.id.txtNombreUsuario)
-        txtNombreUsuario.text = username
+       // val txtNombreUsuario: TextView = findViewById(R.id.txtNombreUsuario)
+     //   txtNombreUsuario.text = nombreUsuario
 
         // Configurar el clic en el botón "Ver Usuario"
         val btnVerUsuario: Button = headerView.findViewById(R.id.btnVerUsuario)
@@ -99,6 +98,8 @@ class MenuActivity : AppCompatActivity() {
             val intent = Intent(this, UserProfileActivity::class.java)
             startActivity(intent)
         }
+
+
 
 
     }
