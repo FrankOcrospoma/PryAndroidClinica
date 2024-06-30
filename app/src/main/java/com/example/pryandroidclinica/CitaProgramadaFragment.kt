@@ -12,6 +12,7 @@ import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pryandroidclinica.databinding.CitasProgramadasLayoutBinding
+import com.example.pryandroidclinica.databinding.FragmentCitaProgramadaBinding
 import com.example.pryandroidclinica.response.CitasResponse
 import com.example.pryandroidclinica.retrofit.RetrofitClient
 import retrofit2.Call
@@ -24,6 +25,7 @@ class CitaProgramadaFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var citaAdapter: CitaAdapter
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,25 +33,31 @@ class CitaProgramadaFragment : Fragment() {
         _binding = CitasProgramadasLayoutBinding.inflate(inflater, container, false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.recyclerViewCitas.layoutManager = LinearLayoutManager(context)
-        citaAdapter = CitaAdapter(emptyList()) { cita ->
+        citaAdapter = CitaAdapter(emptyList(), { cita ->
             mostrarDialogoConfirmacion(cita)
-        }
+        }, { cita ->
+            val bundle = Bundle().apply {
+                putInt("cita_id", cita.cita_id)
+                putString("fecha", cita.fecha)
+                putString("hora", cita.hora)
+                putString("motivo_consulta", cita.motivo_consulta)
+            }
+            findNavController().navigate(R.id.action_citasFragment_to_reprogramarCitaFragment, bundle)
+        })
         binding.recyclerViewCitas.adapter = citaAdapter
 
         binding.btnAgregarCita.setOnClickListener {
             findNavController().navigate(R.id.action_citasFragment_to_agregarCitaFragment)
         }
 
-        // Configurar el listener para recibir el resultado del AgregarCitaFragment
+
         parentFragmentManager.setFragmentResultListener("requestKeyCita", this) { _, bundle ->
             val result = bundle.getString("resultKey")
             if (result == "success") {
-                // Recargar los datos
                 obtenerCitasProgramadas()
             }
         }
@@ -69,7 +77,7 @@ class CitaProgramadaFragment : Fragment() {
                     val singleCita = citasResponse?.singleData
 
                     if (citas.isNotEmpty()) {
-                         citaAdapter.actualizarLista(citas)
+                        citaAdapter.actualizarLista(citas)
                     } else if (singleCita != null) {
                         citaAdapter.actualizarLista(listOf(singleCita))
                     } else {
@@ -85,7 +93,6 @@ class CitaProgramadaFragment : Fragment() {
             }
         })
     }
-
 
     private fun mostrarDialogoConfirmacion(cita: CitasResponse.Cita) {
         AlertDialog.Builder(requireContext())
@@ -106,6 +113,7 @@ class CitaProgramadaFragment : Fragment() {
             override fun onResponse(call: Call<CitasResponse>, response: Response<CitasResponse>) {
                 if (response.isSuccessful && response.body()?.isStatus == true) {
                     Toast.makeText(context, "Cita eliminada exitosamente", Toast.LENGTH_SHORT).show()
+                    setFragmentResult("requestKey", Bundle().apply { putString("resultKey", "success") })
                     obtenerCitasProgramadas()
                 } else {
                     Toast.makeText(context, "Error al cancelar la cita", Toast.LENGTH_SHORT).show()
@@ -113,18 +121,10 @@ class CitaProgramadaFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<CitasResponse>, t: Throwable) {
-                Toast.makeText(context, "Cita eliminada correctamente", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Error al cancelar la cita", Toast.LENGTH_SHORT).show()
                 obtenerCitasProgramadas()
             }
         })
-    }
-
-    private fun mostrarMensajeSinCitas() {
-        Toast.makeText(context, "No tienes citas programadas", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun mostrarMensajeError() {
-        Toast.makeText(context, "Error al cargar las citas", Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroyView() {

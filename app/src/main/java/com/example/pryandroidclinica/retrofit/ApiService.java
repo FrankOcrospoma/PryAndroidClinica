@@ -119,7 +119,7 @@ public interface ApiService {
 
     );
 
-    @HTTP(method = "PUT", path = "/tratamiento/actualizar", hasBody = true)
+    @PUT("/tratamiento/actualizar")
     @FormUrlEncoded
     Call<TratamientoResponse> editarTratamiento(
             @Field("nombre") String nombre,
@@ -127,6 +127,7 @@ public interface ApiService {
             @Field("costo") float costo,
             @Field("id") int id
     );
+
 
     @HTTP(method = "DELETE", path = "/tratamiento/eliminar", hasBody = true)
     @FormUrlEncoded
@@ -177,5 +178,14 @@ public interface ApiService {
     Call<CitasResponse> cancelarCita(
             @Field("cita_id") int cita_id
     );
+
+    @FormUrlEncoded
+    @PUT("/atencion/cita/reprogramar")
+    Call<CitasResponse> reprogramarCita(
+            @Field("cita_id") int citaId,
+            @Field("fecha") String fecha,
+            @Field("hora") String hora
+    );
+
 
 }

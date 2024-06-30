@@ -8,7 +8,8 @@ import com.example.pryandroidclinica.response.CitasResponse
 
 class CitaAdapter(
     private var citas: List<CitasResponse.Cita>,
-    private val onDeleteClick: (CitasResponse.Cita) -> Unit
+    private val onDeleteClick: (CitasResponse.Cita) -> Unit,
+    private val onReprogramarClick: (CitasResponse.Cita) -> Unit
 ) : RecyclerView.Adapter<CitaAdapter.CitaViewHolder>() {
 
     fun actualizarLista(nuevaLista: List<CitasResponse.Cita>) {
@@ -36,6 +37,9 @@ class CitaAdapter(
             binding.txtdoc.text = cita.nombre_odontologo
             binding.btnCancelar.setOnClickListener {
                 onDeleteClick(cita)
+            }
+            binding.btnReprogramar.setOnClickListener {
+                onReprogramarClick(cita)
             }
         }
     }

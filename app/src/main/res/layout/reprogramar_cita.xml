@@ -42,6 +42,7 @@
         </LinearLayout>
 
     </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,10 +51,11 @@
         android:background="@drawable/rounded_corners"
         android:paddingLeft="30dp"
         android:paddingRight="30dp">
+
         <Space
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            />
+            android:layout_height="20dp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,7 +64,8 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="20sp"
-            android:layout_marginEnd="10dp"/>
+            android:layout_marginEnd="10dp" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -82,8 +85,8 @@
 
         <Space
             android:layout_width="wrap_content"
-            android:layout_height="10dp"
-            />
+            android:layout_height="10dp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -92,7 +95,7 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="20sp"
-            android:layout_marginEnd="10dp"/>
+            android:layout_marginEnd="10dp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -113,8 +116,8 @@
 
         <Space
             android:layout_width="wrap_content"
-            android:layout_height="10dp"
-            />
+            android:layout_height="10dp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -123,7 +126,7 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="20sp"
-            android:layout_marginEnd="10dp"/>
+            android:layout_marginEnd="10dp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -138,17 +141,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Space
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            />
+            android:layout_height="20dp" />
+
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnIniciarSesion"
+        android:id="@+id/btnConfirmar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

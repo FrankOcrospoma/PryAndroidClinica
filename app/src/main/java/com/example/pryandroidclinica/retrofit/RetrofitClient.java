@@ -12,8 +12,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
-
-
     public static final String URL_API_SERVICE = "https://pryclinicamoviles.up.railway.app";
     public static String API_TOKEN;
 

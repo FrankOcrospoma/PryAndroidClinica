@@ -29,6 +29,10 @@
         <action
             android:id="@+id/action_citasFragment_to_agregarCitaFragment"
             app:destination="@id/nav_agregar_cita" />
+        <action
+            android:id="@+id/action_citasFragment_to_reprogramarCitaFragment"
+            app:destination="@id/rerogramar_cita" />
+
     </fragment>
 
     <fragment
@@ -85,4 +89,10 @@
         android:name="com.example.pryandroidclinica.AgregarCitaFragment"
         android:label="Agregar Cita"
         tools:layout="@layout/agregar_cita_layout" />
+
+    <fragment
+        android:id="@+id/rerogramar_cita"
+        android:name="com.example.pryandroidclinica.ReprogramarCitaFragment"
+        android:label="Reprogramar Cita"
+        tools:layout="@layout/reprogramar_cita" />
 </navigation>
