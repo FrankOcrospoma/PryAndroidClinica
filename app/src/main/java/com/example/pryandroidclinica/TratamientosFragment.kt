@@ -36,12 +36,18 @@ class TratamientosFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.recyclerViewTratamientos.layoutManager = LinearLayoutManager(context)
-        tratamientoAdapter = TratamientoAdapter(emptyList()) { tratamiento ->
-            mostrarDialogoConfirmacion(tratamiento)
-        }
+        tratamientoAdapter = TratamientoAdapter(
+            emptyList(),
+            onEliminarClick = { tratamiento ->
+                mostrarDialogoConfirmacion(tratamiento)
+            },
+            onEditClick = { tratamiento ->
+                editarTratamiento(tratamiento)
+            }
+        )
         binding.recyclerViewTratamientos.adapter = tratamientoAdapter
         binding.btnAgregarTratamiento.setOnClickListener {
-            findNavController().navigate(R.id.action_tratamientoFragment_to_agregarTratamientoFragment)
+            findNavController().navigate(R.id.action_nav_manage_treatments_to_nav_agregar_tratamiento)
         }
 
         cargarTratamientos()
@@ -93,7 +99,7 @@ class TratamientosFragment : Fragment() {
                     cargarTratamientos()
                 } else {
                     Log.e("TratamientosFragment", "Error al eliminar tratamiento: ${response.code()} - ${response.message()}")
-                    Toast.makeText(context, "Este tratamiento esta presenta en alguna cita", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Este tratamiento está presente en alguna cita", Toast.LENGTH_SHORT).show()
                 }
             }
 
@@ -103,6 +109,16 @@ class TratamientosFragment : Fragment() {
                 cargarTratamientos()
             }
         })
+    }
+
+    private fun editarTratamiento(tratamiento: TratamientoResponse.Tratamiento) {
+        val bundle = Bundle().apply {
+            putInt("id", tratamiento.id)
+            putString("nombre", tratamiento.nombre)
+            putString("descripcion", tratamiento.descripcion)
+            putFloat("costo", tratamiento.costo ?: 0f)
+        }
+        findNavController().navigate(R.id.action_nav_manage_treatments_to_nav_agregar_tratamiento, bundle)
     }
 
     override fun onDestroyView() {

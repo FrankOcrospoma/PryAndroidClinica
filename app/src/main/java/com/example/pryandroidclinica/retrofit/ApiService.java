@@ -119,6 +119,22 @@ public interface ApiService {
 
     );
 
+    @HTTP(method = "PUT", path = "/tratamiento/actualizar", hasBody = true)
+    @FormUrlEncoded
+    Call<TratamientoResponse> editarTratamiento(
+            @Field("nombre") String nombre,
+            @Field("descripcion") String descripcion,
+            @Field("costo") float costo,
+            @Field("id") int id
+    );
+
+    @HTTP(method = "DELETE", path = "/tratamiento/eliminar", hasBody = true)
+    @FormUrlEncoded
+    Call<TratamientoResponse> eliminarTratamiento(
+            @Field("id") int id
+    );
+
+
 
     @GET("/usuario/lista/pacientes")
     Call<PacientesResponse> listaPacientes();
@@ -143,13 +159,6 @@ public interface ApiService {
 
     @GET("/usuario/lista/odontologos")
     Call<OdontologosResponse> listaOdontologos();
-
-
-    @HTTP(method = "DELETE", path = "/tratamiento/eliminar", hasBody = true)
-    @FormUrlEncoded
-    Call<TratamientoResponse> eliminarTratamiento(
-            @Field("id") int id
-    );
 
 
     @HTTP(method = "DELETE", path = "/usuario/eliminar", hasBody = true)

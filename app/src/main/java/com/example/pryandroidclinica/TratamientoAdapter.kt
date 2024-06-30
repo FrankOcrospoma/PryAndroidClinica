@@ -8,7 +8,8 @@ import com.example.pryandroidclinica.response.TratamientoResponse
 
 class TratamientoAdapter(
     private var tratamientos: List<TratamientoResponse.Tratamiento>,
-    private val onEliminarClick: (TratamientoResponse.Tratamiento) -> Unit
+    private val onEliminarClick: (TratamientoResponse.Tratamiento) -> Unit,
+    private val onEditClick: (TratamientoResponse.Tratamiento) -> Unit
 ) : RecyclerView.Adapter<TratamientoAdapter.TratamientoViewHolder>() {
 
     fun actualizarLista(nuevaLista: List<TratamientoResponse.Tratamiento>) {
@@ -37,7 +38,9 @@ class TratamientoAdapter(
             binding.btnEliminar.setOnClickListener {
                 onEliminarClick(tratamiento)
             }
+            binding.btnEditar.setOnClickListener {
+                onEditClick(tratamiento)
+            }
         }
-
     }
 }
