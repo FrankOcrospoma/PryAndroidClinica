@@ -37,17 +37,21 @@ class CitaProgramadaFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.recyclerViewCitas.layoutManager = LinearLayoutManager(context)
-        citaAdapter = CitaAdapter(emptyList(), { cita ->
-            mostrarDialogoConfirmacion(cita)
-        }, { cita ->
-            val bundle = Bundle().apply {
-                putInt("cita_id", cita.cita_id)
-                putString("fecha", cita.fecha)
-                putString("hora", cita.hora)
-                putString("motivo_consulta", cita.motivo_consulta)
+        citaAdapter = CitaAdapter(emptyList(),
+            { cita ->
+                mostrarDialogoConfirmacion(cita)
+            },
+            { cita ->
+                val bundle = Bundle().apply {
+                    putInt("cita_id", cita.cita_id)
+                    putString("fecha", cita.fecha)
+                    putString("hora", cita.hora)
+                    putString("motivo_consulta", cita.motivo_consulta)
+                }
+                findNavController().navigate(R.id.action_citasFragment_to_reprogramarCitaFragment, bundle)
             }
-            findNavController().navigate(R.id.action_citasFragment_to_reprogramarCitaFragment, bundle)
-        })
+        )
+
         binding.recyclerViewCitas.adapter = citaAdapter
 
         binding.btnAgregarCita.setOnClickListener {

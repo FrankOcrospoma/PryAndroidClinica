@@ -51,6 +51,19 @@ public class CitasResponse {
         private String anotacion;
         private String costo;
         private String estado;
+        public Cita(int cita_id, String nombre_paciente, String nombre_odontologo, String fecha, String hora, String motivo_consulta, String diagnostico, String anotacion, String costo, String estado) {
+            this.cita_id = cita_id;
+            this.nombre_paciente = nombre_paciente;
+            this.nombre_odontologo = nombre_odontologo;
+            this.fecha = fecha;
+            this.hora = hora;
+            this.motivo_consulta = motivo_consulta;
+            this.diagnostico = diagnostico;
+            this.anotacion = anotacion;
+            this.costo = costo;
+            this.estado = estado;
+        }
+
 
         // Getters
         public int getCita_id() {

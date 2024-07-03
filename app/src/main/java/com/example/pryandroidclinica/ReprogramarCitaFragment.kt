@@ -36,15 +36,25 @@ class ReprogramarCitaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        cita = arguments?.getParcelable("cita")!!
+        arguments?.let {
+            val citaId = it.getInt("cita_id")
+            val fecha = it.getString("fecha")
+            val hora = it.getString("hora")
+            // Inicializa cita con los datos obtenidos
+            cita = CitasResponse.Cita(citaId, "", "", fecha ?: "", hora ?: "", "", "", "", "", "")
 
-        binding.txtAgregarFechaCita.setText(cita.fecha)
-        binding.txtAgregarHoraCita.setText(cita.hora)
+            binding.txtAgregarFechaCita.setText(cita.fecha)
+            binding.txtAgregarHoraCita.setText(cita.hora)
+        } ?: run {
+            Toast.makeText(context, "Error al cargar los datos de la cita", Toast.LENGTH_SHORT).show()
+            findNavController().popBackStack()
+        }
 
         binding.txtAgregarFechaCita.setOnClickListener { showDatePickerDialog() }
         binding.txtAgregarHoraCita.setOnClickListener { showTimePickerDialog() }
         binding.btnConfirmar.setOnClickListener { reprogramarCita() }
     }
+
 
     private fun showDatePickerDialog() {
         val calendar = Calendar.getInstance()
@@ -84,7 +94,7 @@ class ReprogramarCitaFragment : Fragment() {
     private fun reprogramarCita() {
         val nuevaFecha = binding.txtAgregarFechaCita.text.toString()
         val nuevaHora = binding.txtAgregarHoraCita.text.toString()
-        val motivo = binding.txtAgregarMotivoCita.text.toString()
+
 
         val apiService = RetrofitClient.createService()
         val call = apiService.reprogramarCita(cita.cita_id, nuevaFecha, nuevaHora)
@@ -100,7 +110,8 @@ class ReprogramarCitaFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<CitasResponse>, t: Throwable) {
-                Toast.makeText(context, "Error en la solicitud", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Cita reprogramada exitosamente", Toast.LENGTH_SHORT).show()
+                findNavController().popBackStack()
             }
         })
     }
