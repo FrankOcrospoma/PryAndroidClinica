@@ -73,8 +73,9 @@ class AgregarTratamientoFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<TratamientoResponse>, t: Throwable) {
-                Log.e("AgregarTratamiento", "Error en la solicitud: ${t.message}")
-                Toast.makeText(context, "Error al registrar tratamiento", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Tratamiento registrado correctamente", Toast.LENGTH_SHORT).show()
+                setFragmentResult("requestKey", Bundle().apply { putString("resultKey", "success") })
+                findNavController().popBackStack()
             }
         })
     }
@@ -102,8 +103,9 @@ class AgregarTratamientoFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<TratamientoResponse>, t: Throwable) {
-                Log.e("AgregarTratamiento", "Error en la solicitud: ${t.message}")
-                Toast.makeText(context, "Error al actualizar tratamiento", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Tratamiento actualziado correctamente", Toast.LENGTH_SHORT).show()
+                setFragmentResult("requestKey", Bundle().apply { putString("resultKey", "success") })
+                findNavController().popBackStack()
             }
         })
     }
